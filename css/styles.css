@@ -67,6 +67,58 @@
   font-variation-settings: "SOFT" 50, "WONK" 0, "opsz" 72;
 }
 
+/* === STICKER-STYLE ROTATED BADGES === */
+.sticker {
+  position: absolute;
+  z-index: 5;
+  display: inline-block;
+  background: var(--cream);
+  color: var(--forest);
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "SOFT" 70, "WONK" 1, "opsz" 72;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 10px 18px;
+  border: 1px solid currentColor;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.09);
+  transform: rotate(var(--rot, -4deg));
+  transition: transform 450ms var(--ease);
+  white-space: nowrap;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+.sticker:hover { transform: rotate(calc(var(--rot, -4deg) * 0.2)) scale(1.04); }
+.sticker-gold { background: var(--gold); color: var(--near-black); border-color: var(--near-black); }
+.sticker-forest { background: var(--forest); color: var(--cream); border-color: var(--cream); }
+.sticker-clay { background: var(--clay); color: var(--cream); border-color: var(--cream); }
+.sticker-dot::before {
+  content: '●';
+  margin-right: 8px;
+  font-size: 8px;
+  vertical-align: middle;
+  color: var(--gold);
+}
+.sticker-gold.sticker-dot::before { color: var(--forest); }
+.sticker-star::after {
+  content: '✦';
+  margin-left: 8px;
+  font-style: normal;
+}
+
+/* sticker positions */
+.st-feature { top: 24px; right: 24px; --rot: 4deg; }
+.st-promo { top: -14px; left: 8%; --rot: -5deg; }
+.st-pillars { top: 48px; right: 6%; --rot: 3deg; }
+.st-memad { top: -20px; right: 10%; --rot: 6deg; }
+.st-hero { top: 110px; right: 6%; --rot: -6deg; z-index: 4; }
+
+@media (max-width: 768px) {
+  .sticker { font-size: 11px; padding: 8px 14px; }
+  .st-hero, .st-pillars { display: none; }
+}
+
 /* === GIANT BLEEDING ITALIC NUMERALS (Apartamento) === */
 .bleed-num {
   position: relative;
@@ -1218,6 +1270,7 @@ body.home { padding-top: 0; }
 
 .block-featured-home { padding-top: var(--space-5); }
 .fh-card {
+  position: relative;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: var(--space-6);
@@ -1436,6 +1489,7 @@ body.home { padding-top: 0; }
 }
 
 /* pillar index */
+.block-pillar-index { position: relative; }
 .block-pillar-index .h2 { margin-top: var(--space-3); }
 .pindex {
   list-style: none;
