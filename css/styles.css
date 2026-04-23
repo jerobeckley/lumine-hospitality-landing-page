@@ -489,11 +489,136 @@ a { color: inherit; text-decoration: none; }
   color: color-mix(in srgb, var(--cream) 50%, transparent);
 }
 
+/* ========== page hero (sub-pages) ========== */
+.page-hero {
+  padding: calc(var(--nav-h) + var(--space-7)) var(--gutter) var(--space-7);
+  border-bottom: 1px solid color-mix(in srgb, var(--forest) 14%, transparent);
+  background: var(--cream);
+}
+.ph-inner { max-width: var(--max); margin: 0 auto; }
+.ph-inner .h1 { max-width: 18ch; margin-bottom: var(--space-4); }
+
+/* ========== surfaces ========== */
+.nav-links a.is-current { color: var(--gold); }
+.nav-links a.is-current::after { width: 100%; }
+
+.surfaces-nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-4) var(--gutter);
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  border-bottom: 1px solid color-mix(in srgb, var(--forest) 14%, transparent);
+  position: sticky;
+  top: var(--nav-h);
+  background: color-mix(in srgb, var(--cream) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 20;
+}
+.sn-link {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--forest-mid);
+  transition: color 200ms var(--ease);
+}
+.sn-link span {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-right: 8px;
+  font-style: normal;
+}
+.sn-link:hover { color: var(--gold); }
+
+.surface {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+  scroll-margin-top: calc(var(--nav-h) + 80px);
+}
+.surface-alt .surface-media { order: 2; }
+.surface-alt .surface-copy { order: 1; }
+.surface-media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--cream-warm);
+}
+.surface-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1400ms var(--ease);
+}
+.surface:hover .surface-media img { transform: scale(1.03); }
+.surface-num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: var(--space-3);
+}
+.surface-kicker {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(22px, 2vw, 28px);
+  color: var(--forest-mid);
+  margin-bottom: var(--space-4);
+}
+.surface-list {
+  list-style: none;
+  margin-top: var(--space-4);
+}
+.surface-list li {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--warm-grey);
+  padding: var(--space-2) 0;
+  padding-left: var(--space-4);
+  border-bottom: 1px dotted color-mix(in srgb, var(--forest) 15%, transparent);
+  position: relative;
+}
+.surface-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 24px;
+  line-height: 1;
+  top: 14px;
+}
+.surface-list li:last-child { border-bottom: 0; }
+
+/* ========== closing cta (sub-page) ========== */
+.closing-cta {
+  background: var(--forest);
+  color: var(--cream);
+  padding: var(--space-8) var(--gutter);
+  text-align: center;
+}
+.cc-inner { max-width: 780px; margin: 0 auto; }
+.closing-cta .eyebrow { color: var(--gold); }
+.closing-cta .h2 { color: var(--cream); max-width: 100%; margin-left: auto; margin-right: auto; }
+.closing-cta .lede { color: color-mix(in srgb, var(--cream) 80%, transparent); margin-left: auto; margin-right: auto; }
+.closing-cta .btn-primary { background: var(--gold); border-color: var(--gold); color: var(--near-black); }
+.closing-cta .btn-primary:hover { background: var(--cream); color: var(--forest); border-color: var(--cream); }
+
 /* ========== responsive ========== */
 @media (max-width: 1000px) {
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .latest-grid { grid-template-columns: repeat(2, 1fr); }
   .sf-inner { grid-template-columns: 1fr 1fr; }
+  .surface { grid-template-columns: 1fr; gap: var(--space-5); }
+  .surface-alt .surface-media { order: 0; }
+  .surface-alt .surface-copy { order: 1; }
+  .surface-media { aspect-ratio: 16 / 10; }
 }
 @media (max-width: 640px) {
   .values-grid { grid-template-columns: 1fr; gap: var(--space-4); }
