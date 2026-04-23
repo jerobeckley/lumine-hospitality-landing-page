@@ -21,23 +21,45 @@
     <span class="nav-status">by invitation</span>
   </nav>
 
-  <!-- =========  hero  ========= -->
+  <!-- =========  hero — cinematic parallax  ========= -->
   <section class="hero">
-    <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=80" alt="" loading="eager">
-      <div class="hero-overlay"></div>
+    <div class="hero-layer hero-bg" data-speed="0.35">
+      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2400&q=85" alt="" loading="eager">
     </div>
-    <div class="hero-content">
-      <p class="hero-run reveal">a private cultural community</p>
-      <!-- TODO: replace wordmark with custom letterform SVG. -->
-      <h1 class="wordmark reveal">SELVA</h1>
-      <p class="hero-line reveal">a room for creatives and culturally minded people — designed so that everything you see is worth your time.</p>
+    <div class="hero-layer hero-mist" data-speed="0.55" aria-hidden="true"></div>
+    <div class="hero-layer hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-frame" data-speed="0.85">
+      <p class="hero-run"><span class="hero-line-inner"><span>a private cultural community</span></span></p>
+
+      <h1 class="wordmark" aria-label="SELVA">
+        <span class="letter">S</span><span class="letter">E</span><span class="letter">L</span><span class="letter">V</span><span class="letter">A</span>
+      </h1>
+
+      <div class="hero-ornament" aria-hidden="true">
+        <svg viewBox="0 0 240 12" width="200" height="10">
+          <line x1="0" y1="6" x2="96" y2="6" stroke="currentColor" stroke-width="0.5"/>
+          <circle cx="120" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="0.6"/>
+          <circle cx="120" cy="6" r="1" fill="currentColor"/>
+          <line x1="144" y1="6" x2="240" y2="6" stroke="currentColor" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+      <p class="hero-line"><span class="hero-line-inner"><span>a room for creatives and culturally minded people &mdash;</span></span><span class="hero-line-inner"><span>designed so that everything you see is worth your time.</span></span></p>
+
       <form class="capture capture-hero reveal" onsubmit="return handleSubmit(event)">
         <input type="email" placeholder="your email" required aria-label="email">
         <button type="submit">request an invitation</button>
       </form>
-      <p class="hero-meta reveal">$33 / month &nbsp;·&nbsp; $333 / year &nbsp;·&nbsp; one tier</p>
+      <p class="hero-meta"><span class="hero-line-inner"><span>$33 / month &nbsp;·&nbsp; $333 / year &nbsp;·&nbsp; one tier</span></span></p>
     </div>
+
+    <div class="hero-footnotes" aria-hidden="true">
+      <span>est. 2026</span>
+      <span>by invitation only</span>
+      <span>№ 001</span>
+    </div>
+
     <a href="#ethos" class="hero-scroll" aria-label="scroll">scroll</a>
   </section>
 

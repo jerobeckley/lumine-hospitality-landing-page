@@ -26,6 +26,23 @@ if (window.gsap && window.ScrollTrigger) {
     gsap.ticker.lagSmoothing(0);
   }
 
+  // hero parallax — layers translate at different speeds on scroll
+  if (!reduced) {
+    gsap.utils.toArray('.hero-layer, .hero-frame').forEach((el) => {
+      const speed = parseFloat(el.dataset.speed || '1');
+      gsap.to(el, {
+        yPercent: (1 - speed) * 60,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    });
+  }
+
   // horizontal pinned pillars
   const pHor = document.querySelector('.pillars-horizontal');
   const pTrack = document.querySelector('.pillars-track');
