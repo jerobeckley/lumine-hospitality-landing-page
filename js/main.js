@@ -131,6 +131,122 @@ updateBar();
 })();
 
 // ============================================================
+// SPLIT TEXT — wrap heading words in .split-line/.split-word
+// ============================================================
+(function splitText() {
+  const selectors = '.edhero-head, .fh-title, .h2, .hh-head, .jf-title, .memad-title, .pq-text, .ic-title, .pi-name, .lc-title, .h1';
+  document.querySelectorAll(selectors).forEach((el) => {
+    if (el.dataset.split) return;
+    el.dataset.split = 'true';
+    const html = el.innerHTML;
+    // split on spaces but keep tags like <br>
+    const parts = html.replace(/<br\s*\/?>/gi, '|BR|').split(/\s+/);
+    const rebuilt = parts.map((p) => {
+      if (p === '|BR|') return '<br>';
+      if (!p) return '';
+      return `<span class="split-line"><span class="split-word">${p}</span></span>`;
+    }).join(' ');
+    el.innerHTML = rebuilt;
+    // index each word so CSS can stagger
+    el.querySelectorAll('.split-word').forEach((w, i) => { w.style.setProperty('--i', i); });
+    el.classList.add('js-split');
+  });
+})();
+
+// ============================================================
+// AUTO-TAG: add .fade-up to things we want to animate on scroll
+// ============================================================
+(function autoTag() {
+  const sel = [
+    '.eyebrow', '.lede', '.edhero-lede', '.edhero-kicker', '.edhero-ctas',
+    '.editor-body p', '.editor-sign', '.fh-meta', '.fh-pillar', '.fh-dek',
+    '.issue-card', '.ic-pillar', '.ic-dek', '.ic-meta',
+    '.pindex li', '.fh-marker', '.or-rule', '.memad-frame', '.colophon-line',
+    '.colophon-masthead', '.pq-cite', '.pq-mark',
+    '.surface-copy > *', '.surface-media',
+    '.pc-copy > *', '.pc-media',
+    '.latest-card', '.latest-grid', '.values-grid .value',
+    '.pillar-list li', '.j-card', '.mem-item', '.flow-list li',
+    '.commitments li', '.phil-stat > div', '.contact-card', '.is-is-not > div',
+    '.manifesto-body p', '.story-copy p', '.story-figure',
+    '.phil-faq dl > div', '.issue-foot'
+  ].join(',');
+  document.querySelectorAll(sel).forEach((el) => {
+    if (!el.classList.contains('fade-up')) el.classList.add('fade-up');
+  });
+  // stagger siblings inside select containers
+  const containers = [
+    '.issue-grid', '.pindex', '.latest-grid', '.values-grid', '.pillar-list',
+    '.j-grid', '.mem-grid', '.flow-list', '.commitments', '.phil-stat', '.contact-grid',
+    '.is-is-not', '.phil-faq dl', '.edhero-ctas'
+  ];
+  containers.forEach((c) => {
+    document.querySelectorAll(c).forEach((box) => {
+      box.setAttribute('data-stagger', '');
+      box.querySelectorAll(':scope > *, :scope > li').forEach((child, i) => child.style.setProperty('--i', i));
+    });
+  });
+})();
+
+// ============================================================
+// IMAGE CLIP REVEAL — wrap large editorial images
+// ============================================================
+(function imgReveal() {
+  const targets = '.fh-img, .hh-bg, .edhero-bg, .pc-media, .surface-media, .jf-img, .j-img, .lc-img, .intro-figure, .story-figure, .pillar-img, .pillars-sticky .pp-img, .promo-bg, .quote-bg, .card-bg, .cta-bg';
+  document.querySelectorAll(targets).forEach((el) => el.classList.add('img-reveal'));
+  // mark inner imgs for hover color
+  document.querySelectorAll('.fh-img img, .lc-img img, .j-img img, .jf-img img, .pc-media img, .surface-media img, .pillar-img img').forEach((img) => img.classList.add('img-hover'));
+})();
+
+// ============================================================
+// INTERSECTION OBSERVER — trigger reveals
+// ============================================================
+(function reveal() {
+  if (reduced) {
+    document.querySelectorAll('.fade-up, .js-split, .img-reveal').forEach((el) => el.classList.add('is-inview'));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-inview');
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+  );
+  document.querySelectorAll('.fade-up, .js-split, .img-reveal').forEach((el) => io.observe(el));
+})();
+
+// ============================================================
+// IMAGE PARALLAX — scroll-linked translateY on select images
+// ============================================================
+(function parallax() {
+  if (reduced) return;
+  const targets = document.querySelectorAll('.edhero-bg, .hh-bg, .promo-bg, .quote-bg, .card-bg, .cta-bg, .fh-img, .intro-figure, .story-figure, .jf-img, .pp-img');
+  if (!targets.length) return;
+  targets.forEach((t) => t.classList.add('parallax-img'));
+  let running = false;
+  function update() {
+    running = false;
+    const vh = window.innerHeight;
+    targets.forEach((t) => {
+      const r = t.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      const progress = (r.top + r.height / 2 - vh / 2) / vh;
+      const py = -progress * 40;
+      t.style.setProperty('--py', py.toFixed(1) + 'px');
+    });
+  }
+  window.addEventListener('scroll', () => {
+    if (!running) { running = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
+// ============================================================
 // FORM STUB
 // ============================================================
 function handleSubmit(event) {
