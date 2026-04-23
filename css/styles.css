@@ -46,6 +46,78 @@ a { color: inherit; text-decoration: none; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 
+/* ========== page loader ========== */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--near-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  transition: transform 1100ms cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+.loader.is-done {
+  transform: translateY(-100%);
+}
+.loader-inner {
+  position: relative;
+  text-align: center;
+  padding: 0 var(--gutter);
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+.loader-count {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(72px, 12vw, 180px);
+  line-height: 1;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+  min-width: 3ch;
+  text-align: left;
+  transition: color 200ms var(--ease);
+}
+.loader-mark {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(24px, 3vw, 42px);
+  letter-spacing: 0.3em;
+  color: var(--cream);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: loaderMark 900ms var(--ease) 800ms forwards;
+}
+@keyframes loaderMark { to { opacity: 1; transform: none; } }
+.loader-line {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: color-mix(in srgb, var(--cream) 20%, transparent);
+  overflow: hidden;
+}
+.loader-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: loaderLine 2400ms cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+@keyframes loaderLine { to { transform: scaleX(1); } }
+body.is-loaded { overflow: auto; }
+body:not(.is-loaded) { overflow: hidden; }
+
 /* ========== scroll progress ========== */
 .scroll-progress {
   position: fixed;
@@ -56,6 +128,50 @@ a { color: inherit; text-decoration: none; }
   z-index: 100;
   transition: width 120ms linear;
   pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+/* ========== custom cursor ========== */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 200;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 300ms var(--ease);
+}
+.cursor.is-on { opacity: 1; }
+.cursor-dot {
+  position: fixed;
+  top: -3px; left: -3px;
+  width: 6px; height: 6px;
+  background: var(--cream);
+  border-radius: 50%;
+  transform: translate3d(0,0,0);
+}
+.cursor-ring {
+  position: fixed;
+  top: -20px; left: -20px;
+  width: 40px; height: 40px;
+  border: 1px solid var(--cream);
+  border-radius: 50%;
+  transform: translate3d(0,0,0);
+  transition: width 280ms var(--ease), height 280ms var(--ease), top 280ms var(--ease), left 280ms var(--ease), border-color 280ms var(--ease);
+}
+.cursor.is-active .cursor-ring {
+  width: 80px; height: 80px;
+  top: -40px; left: -40px;
+  border-color: var(--gold);
+}
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+body.cursor-on * { cursor: none !important; }
+
+/* magnetic + performant transitions */
+.btn, .btn-text, a[data-magnetic] {
+  display: inline-block;
+  will-change: transform;
+  transition: transform 300ms var(--ease), background 280ms var(--ease), color 280ms var(--ease), border-color 280ms var(--ease);
 }
 
 /* ========== site nav ========== */
