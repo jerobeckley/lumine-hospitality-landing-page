@@ -71,6 +71,53 @@ if (window.gsap && window.ScrollTrigger) {
   }
 }
 
+// custom cursor (desktop only, pointer: fine)
+(function cursor() {
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!fine) return;
+  const c = document.querySelector('.cursor');
+  const dot = c?.querySelector('.cursor-dot');
+  const ring = c?.querySelector('.cursor-ring');
+  if (!c || !dot || !ring) return;
+  document.body.classList.add('cursor-on');
+  let x = 0, y = 0, rx = 0, ry = 0;
+  window.addEventListener('mousemove', (e) => { x = e.clientX; y = e.clientY; c.classList.add('is-on'); });
+  window.addEventListener('mouseleave', () => c.classList.remove('is-on'));
+  const hover = 'a, button, input, summary, .member-card, [role="button"]';
+  document.addEventListener('mouseover', (e) => { if (e.target.closest(hover)) c.classList.add('is-active'); });
+  document.addEventListener('mouseout', (e) => { if (e.target.closest(hover)) c.classList.remove('is-active'); });
+  function tick() {
+    rx += (x - rx) * 0.18;
+    ry += (y - ry) * 0.18;
+    dot.style.setProperty('--cx', x + 'px');
+    dot.style.setProperty('--cy', y + 'px');
+    ring.style.setProperty('--rx', rx + 'px');
+    ring.style.setProperty('--ry', ry + 'px');
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+// 3D tilt on member card
+(function cardTilt() {
+  const card = document.querySelector('.member-card');
+  if (!card || reduced) return;
+  const stage = card.closest('.card-stage') || card.parentElement;
+  stage.addEventListener('mousemove', (e) => {
+    const r = stage.getBoundingClientRect();
+    const px = ((e.clientX - r.left) / r.width - 0.5) * 2;
+    const py = ((e.clientY - r.top) / r.height - 0.5) * 2;
+    card.style.setProperty('--ry', (px * 12) + 'deg');
+    card.style.setProperty('--rx', (-py * 8) + 'deg');
+    card.style.setProperty('--gloss', (px * 80) + '%');
+  });
+  stage.addEventListener('mouseleave', () => {
+    card.style.setProperty('--ry', '6deg');
+    card.style.setProperty('--rx', '-4deg');
+    card.style.setProperty('--gloss', '-50%');
+  });
+})();
+
 // reveal on scroll
 const io = new IntersectionObserver(
   (entries) => {

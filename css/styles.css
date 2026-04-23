@@ -45,6 +45,41 @@ html.lenis, html.lenis body { height: auto; }
   mix-blend-mode: difference;
 }
 
+/* custom cursor */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 200;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 300ms var(--ease);
+}
+.cursor.is-on { opacity: 1; }
+.cursor-dot {
+  position: absolute;
+  top: -3px; left: -3px;
+  width: 6px; height: 6px;
+  background: var(--cream);
+  border-radius: 50%;
+  transform: translate(var(--cx, 0), var(--cy, 0));
+  transition: transform 40ms linear;
+}
+.cursor-ring {
+  position: absolute;
+  top: -18px; left: -18px;
+  width: 36px; height: 36px;
+  border: 1px solid var(--cream);
+  border-radius: 50%;
+  transform: translate(var(--rx, 0), var(--ry, 0)) scale(var(--rs, 1));
+  transition: transform 220ms var(--ease), width 220ms var(--ease), height 220ms var(--ease), border-color 220ms var(--ease);
+}
+.cursor.is-active .cursor-ring { --rs: 1.8; border-color: var(--gold); }
+
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+body.cursor-on { cursor: none; }
+body.cursor-on a, body.cursor-on button, body.cursor-on input, body.cursor-on summary, body.cursor-on [role="button"] { cursor: none; }
+
 body {
   background: var(--cream);
   color: var(--forest);
@@ -819,6 +854,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
   width: 100%;
 }
+.card-stage { perspective: 1200px; perspective-origin: center center; }
 .member-card {
   position: relative;
   background: var(--cream);
@@ -830,11 +866,21 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   justify-content: space-between;
   color: var(--forest);
-  box-shadow: 0 40px 80px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.2);
-  transform: rotate(-2deg);
-  transition: transform 600ms var(--ease);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.45), 0 12px 30px rgba(0,0,0,0.25);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, -4deg)) rotateY(var(--ry, 6deg));
+  transition: transform 220ms var(--ease), box-shadow 400ms var(--ease);
+  will-change: transform;
 }
-.member-card:hover { transform: rotate(0deg) scale(1.02); }
+.member-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.22) 48%, transparent 56%);
+  pointer-events: none;
+  transform: translateX(var(--gloss, -50%));
+  transition: transform 400ms var(--ease);
+}
 .mc-corner {
   position: absolute;
   width: 14px; height: 14px;
