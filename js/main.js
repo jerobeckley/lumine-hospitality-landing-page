@@ -247,6 +247,51 @@ updateBar();
 })();
 
 // ============================================================
+// NAV SHRINK ON SCROLL + BANNER HIDE
+// ============================================================
+(function navScroll() {
+  const nav = document.querySelector('.site-nav');
+  if (!nav) return;
+  let last = 0;
+  function update() {
+    const y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 80) {
+      nav.classList.add('is-compact');
+      document.body.classList.add('is-scrolled');
+    } else {
+      nav.classList.remove('is-compact');
+      document.body.classList.remove('is-scrolled');
+    }
+    last = y;
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// ============================================================
+// CARD TILT — subtle 3D on feature cards
+// ============================================================
+(function cardTilt() {
+  if (reduced) return;
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!fine) return;
+  document.querySelectorAll('.fh-card, .issue-card, .latest-card, .j-card').forEach((card) => {
+    let rect = null;
+    card.addEventListener('mouseenter', () => { rect = card.getBoundingClientRect(); });
+    card.addEventListener('mousemove', (e) => {
+      if (!rect) rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(1400px) rotateX(${(-py * 3).toFixed(2)}deg) rotateY(${(px * 4).toFixed(2)}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      rect = null;
+    });
+  });
+})();
+
+// ============================================================
 // FORM STUB
 // ============================================================
 function handleSubmit(event) {

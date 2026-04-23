@@ -653,6 +653,66 @@ a:hover .img-hover, .pillar:hover .img-hover, .issue-card:hover .img-hover, .fh-
   color: color-mix(in srgb, var(--cream) 50%, transparent);
 }
 
+/* ========== pillar marquee ========== */
+.pillar-marquee {
+  overflow: hidden;
+  background: var(--near-black);
+  color: var(--cream);
+  border-top: 1px solid color-mix(in srgb, var(--cream) 15%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--cream) 15%, transparent);
+  padding: var(--space-3) 0;
+  position: relative;
+}
+.pm-track {
+  display: flex;
+  gap: var(--space-5);
+  width: max-content;
+  white-space: nowrap;
+  animation: pmScroll 55s linear infinite;
+  will-change: transform;
+}
+.pm-track:hover { animation-play-state: paused; }
+.pm-item {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 52px);
+  color: var(--cream);
+  letter-spacing: 0.01em;
+}
+.pm-dot {
+  color: var(--gold) !important;
+  font-size: clamp(18px, 2.2vw, 28px) !important;
+  align-self: center;
+  font-style: normal !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+@keyframes pmScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) { .pm-track { animation: none; } }
+
+/* ========== nav: shrink on scroll ========== */
+.site-nav {
+  transition: height 320ms var(--ease), background 320ms var(--ease), border-color 320ms var(--ease);
+}
+.site-nav.is-compact {
+  height: 56px;
+  background: color-mix(in srgb, var(--cream) 96%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--forest) 22%, transparent);
+}
+.site-nav-home.is-compact { top: 0; }
+body.home.is-scrolled .issue-banner { transform: translateY(-100%); }
+.issue-banner { transition: transform 380ms var(--ease); }
+
+/* ========== card tilt (3D on hover) ========== */
+.fh-card, .issue-card, .latest-card, .j-card {
+  transform-style: preserve-3d;
+  transition: transform 400ms var(--ease), background 300ms var(--ease);
+  will-change: transform;
+}
+
 /* ========== HOME (editorial) ========== */
 .issue-banner {
   display: flex;
