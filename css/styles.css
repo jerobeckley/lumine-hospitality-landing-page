@@ -67,6 +67,41 @@
   font-variation-settings: "SOFT" 50, "WONK" 0, "opsz" 72;
 }
 
+/* === SELVA wordmark image === */
+.wm {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  letter-spacing: 0 !important;
+}
+.nav-brand .wm-nav {
+  height: 28px;
+  transition: height 320ms var(--ease);
+}
+.site-nav.is-compact .nav-brand .wm-nav { height: 22px; }
+.sf-mark { line-height: 0; margin-bottom: var(--space-3); }
+.sf-mark .wm-footer { height: 44px; }
+.loader-mark { display: inline-flex; align-items: center; line-height: 0; letter-spacing: 0 !important; }
+.loader-mark .wm-loader {
+  height: clamp(40px, 5vw, 64px);
+}
+.wm-hero {
+  height: clamp(72px, 11vw, 160px);
+  margin-bottom: var(--space-5);
+}
+@media (max-width: 640px) {
+  .nav-brand .wm-nav { height: 22px; }
+  .site-nav.is-compact .nav-brand .wm-nav { height: 18px; }
+  .sf-mark .wm-footer { height: 36px; }
+}
+
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
 
 body {
