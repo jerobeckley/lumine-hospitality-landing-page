@@ -1,13 +1,23 @@
 :root {
+  /* core forest + cream */
   --forest: #2C5530;
   --forest-mid: #3A6B3E;
   --forest-deep: #1E3A21;
-  --cream: #F5F0E6;
-  --cream-warm: #EDE5D4;
+  --cream: #F4ECDB;         /* warmer cream — Kinfolk / Apartamento */
+  --cream-warm: #EAE0C7;
+  --cream-deep: #E0D3B4;
+  /* warm mediterranean tones — Scorpios / Aime Leon Dore */
+  --clay: #C4603D;
+  --terracotta: #B8603D;
+  --sand: #DDC69F;
+  --tobacco: #8B6F3E;
+  --honey: #E6B566;
+  --amber: #D4A464;
   --gold: #B8924A;
   --sage: #8FB08A;
   --warm-grey: #776F65;
-  --near-black: #0E0E0E;
+  --near-black: #1A1512;    /* tinted black, not pure — warmer feel */
+  --ink: #2B2118;           /* almost-black for body text */
 
   --space-1: 8px;
   --space-2: 16px;
@@ -249,12 +259,21 @@ body.cursor-on * { cursor: none !important; }
 .img-hover { transition: filter 600ms var(--ease); filter: saturate(0.82) contrast(1.05) sepia(0.08); }
 a:hover .img-hover, .pillar:hover .img-hover, .issue-card:hover .img-hover, .fh-card:hover .img-hover, .latest-card:hover .img-hover, .j-card:hover .img-hover { filter: saturate(1.08) contrast(1.02) sepia(0); }
 
-/* warm/editorial treatment on ALL editorial imagery — unifies stock photos into a brand look */
+/* warm/editorial treatment — Scorpios golden-hour / Apartamento tonal unification */
 .fh-img img, .lc-img img, .j-img img, .jf-img img, .pc-media img, .surface-media img, .pillar-img img, .hh-bg img, .edhero-bg img, .promo-bg img, .quote-bg img, .card-bg img, .cta-bg img, .story-bg img, .intro-figure img, .story-figure img {
-  filter: saturate(0.85) contrast(1.06) sepia(0.06) brightness(0.96);
+  filter: saturate(0.9) contrast(1.04) sepia(0.14) hue-rotate(-6deg) brightness(0.98);
 }
-/* darker backgrounds keep their brightness treatment */
-.edhero-bg img, .promo-bg img, .quote-bg img, .card-bg img, .cta-bg img, .story-bg img { filter: brightness(0.52) saturate(0.88) contrast(1.08) sepia(0.08); }
+/* darker backgrounds keep their brightness treatment but still warm */
+.edhero-bg img, .promo-bg img, .quote-bg img, .card-bg img, .cta-bg img, .story-bg img {
+  filter: brightness(0.5) saturate(0.95) contrast(1.08) sepia(0.2) hue-rotate(-8deg);
+}
+/* warm glow overlay on dark hero sections — golden hour fingerprint */
+.hh-overlay, .edhero-overlay, .promo-overlay, .quote-overlay, .card-overlay, .cta-overlay, .story-vignette {
+  background:
+    radial-gradient(ellipse 85% 60% at 30% 65%, rgba(230, 181, 102, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 75% 30%, rgba(196, 96, 61, 0.16) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(26,21,18,0.55) 0%, rgba(26,21,18,0.25) 35%, rgba(26,21,18,0.0) 55%, rgba(26,21,18,0.55) 100%);
+}
 
 /* parallax image container — JS writes --py */
 .parallax-img img { transform: translate3d(0, var(--py, 0px), 0) scale(1.08); transition: none; }
@@ -586,25 +605,42 @@ a:hover .img-hover, .pillar:hover .img-hover, .issue-card:hover .img-hover, .fh-
   margin-top: auto;
 }
 
-/* ========== membership promo ========== */
+/* ========== membership promo — Cabana clay block ========== */
 .block-promo {
   position: relative;
   padding: var(--space-8) var(--gutter);
   overflow: hidden;
   color: var(--cream);
+  background:
+    radial-gradient(circle at 82% 18%, rgba(230, 181, 102, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 18% 82%, rgba(184, 146, 74, 0.2) 0%, transparent 55%),
+    linear-gradient(135deg, #B8603D 0%, #9B4A2E 55%, #6E2F1E 100%);
 }
-.promo-bg { position: absolute; inset: 0; z-index: 0; }
-.promo-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.45) saturate(0.85); }
-.promo-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(14,14,14,0.7), rgba(14,14,14,0.3));
+.block-promo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.07) 0.6px, transparent 0.6px),
+    radial-gradient(rgba(255,255,255,0.05) 0.6px, transparent 0.6px);
+  background-size: 4px 4px, 7px 7px;
+  background-position: 0 0, 2px 3px;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+  pointer-events: none;
 }
+.promo-bg, .promo-overlay { display: none; }
 .promo-inner {
   position: relative;
   z-index: 1;
   max-width: var(--max);
   margin: 0 auto;
 }
+.block-promo .eyebrow { color: var(--honey); }
+.block-promo .h2 { color: var(--cream); }
+.block-promo .lede { color: rgba(244, 236, 219, 0.88); }
+.block-promo .btn-gold { background: var(--cream); color: var(--terracotta); border-color: var(--cream); }
+.block-promo .btn-gold:hover { background: transparent; color: var(--cream); border-color: var(--cream); }
 
 /* ========== footer ========== */
 .site-footer {
