@@ -7,428 +7,175 @@
   <meta name="description" content="A private community for creatives and culturally minded people. By invitation only.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <div class="scroll-progress" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"></span></div>
 
-  <!-- =========  nav  ========= -->
-  <nav class="nav">
-    <span class="nav-mark">SELVA</span>
-    <span class="nav-issue">№ 001 &nbsp;·&nbsp; spring 2026</span>
-    <span class="nav-status">by invitation</span>
-  </nav>
+  <!-- ========== site nav ========== -->
+  <header class="site-nav">
+    <a href="/" class="nav-brand">SELVA</a>
+    <nav class="nav-links" aria-label="primary">
+      <a href="/inside.html">inside selva</a>
+      <a href="/pillars.html">the six pillars</a>
+      <a href="/journal.html">the journal</a>
+      <a href="/membership.html">how to join</a>
+      <a href="/purpose.html">our purpose</a>
+    </nav>
+    <a href="/membership.html" class="nav-cta">request invitation</a>
+    <button class="nav-toggle" aria-label="menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
 
-  <!-- =========  hero — cinematic parallax  ========= -->
-  <section class="hero">
-    <div class="hero-layer hero-bg" data-speed="0.35">
-      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2400&q=85" alt="" loading="eager">
+  <!-- ========== hero ========== -->
+  <section class="home-hero">
+    <div class="hh-bg">
+      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2400&q=85" alt="">
+      <div class="hh-overlay"></div>
     </div>
-    <div class="hero-layer hero-mist" data-speed="0.55" aria-hidden="true"></div>
-    <div class="hero-layer hero-overlay" aria-hidden="true"></div>
-
-    <div class="hero-frame" data-speed="0.85">
-      <p class="hero-run"><span class="hero-line-inner"><span>a private cultural community</span></span></p>
-
-      <h1 class="wordmark" aria-label="SELVA">
-        <span class="letter">S</span><span class="letter">E</span><span class="letter">L</span><span class="letter">V</span><span class="letter">A</span>
-      </h1>
-
-      <div class="hero-ornament" aria-hidden="true">
-        <svg viewBox="0 0 240 12" width="200" height="10">
-          <line x1="0" y1="6" x2="96" y2="6" stroke="currentColor" stroke-width="0.5"/>
-          <circle cx="120" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="0.6"/>
-          <circle cx="120" cy="6" r="1" fill="currentColor"/>
-          <line x1="144" y1="6" x2="240" y2="6" stroke="currentColor" stroke-width="0.5"/>
-        </svg>
-      </div>
-
-      <p class="hero-line"><span class="hero-line-inner"><span>a room for creatives and culturally minded people &mdash;</span></span><span class="hero-line-inner"><span>designed so that everything you see is worth your time.</span></span></p>
-
-      <form class="capture capture-hero reveal" onsubmit="return handleSubmit(event)">
-        <input type="email" placeholder="your email" required aria-label="email">
-        <button type="submit">request an invitation</button>
-      </form>
-      <p class="hero-meta"><span class="hero-line-inner"><span>$33 / month &nbsp;·&nbsp; $333 / year &nbsp;·&nbsp; one tier</span></span></p>
-    </div>
-
-    <div class="hero-footnotes" aria-hidden="true">
-      <span>est. 2026</span>
-      <span>by invitation only</span>
-      <span>№ 001</span>
-    </div>
-
-    <a href="#ethos" class="hero-scroll" aria-label="scroll">scroll</a>
-  </section>
-
-  <!-- =========  intro / ethos  ========= -->
-  <section id="ethos" class="block block-intro">
-    <div class="intro-grid">
-      <div class="intro-copy">
-        <p class="label reveal">№ 01 &nbsp;·&nbsp; ethos</p>
-        <h2 class="section-head reveal">the room, not the feed.</h2>
-        <p class="section-lede reveal"><span class="dropcap">S</span>elva removes the corporate from linkedin, the validation from instagram, the noise from everything else. what remains is a room where people who notice the difference can meet each other on purpose.</p>
-        <p class="section-body reveal">no algorithms. no ads. no vanity metrics. just a living magazine, a quiet marketplace, and a small number of rooms worth walking into.</p>
-      </div>
-      <figure class="intro-figure reveal">
-        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80" alt="">
-        <figcaption>mist rises from the selva — the jungle for which we are named.</figcaption>
-      </figure>
-    </div>
-
-    <div class="manifesto-grid">
-      <div class="reveal">
-        <p class="is-label">selva is</p>
-        <ul>
-          <li>a curated room of people who care</li>
-          <li>intentional, every detail considered</li>
-          <li>a healthy alternative to slopscrolling</li>
-          <li>a space where you scroll with intention</li>
-          <li>transparent — profits fund philanthropy</li>
-        </ul>
-      </div>
-      <div class="reveal">
-        <p class="is-label">selva is not</p>
-        <ul>
-          <li>a place to build clout</li>
-          <li>a luxury brand — it's about taste, not wealth</li>
-          <li>an exclusive club that exists to keep people out</li>
-          <li>corporate, ad-driven, or algorithm-first</li>
-          <li>silent about where the money goes</li>
-        </ul>
+    <div class="hh-inner">
+      <p class="eyebrow">№ 001 &nbsp;·&nbsp; spring 2026</p>
+      <h1 class="hh-head">a private community<br>for people who notice the difference.</h1>
+      <p class="hh-lede">selva is a cultural community and living magazine across six pillars — art, sound, wellness, mind, entrepreneurship, nature — designed so that everything you see is worth your time.</p>
+      <div class="hh-ctas">
+        <a href="/membership.html" class="btn btn-primary">request an invitation</a>
+        <a href="/manifesto.html" class="btn btn-ghost">read the manifesto</a>
       </div>
     </div>
   </section>
 
-  <!-- =========  pull quote with atmospheric bg  ========= -->
-  <section class="quote-wrap">
-    <div class="quote-bg">
-      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=2000&q=80" alt="">
-      <div class="quote-overlay"></div>
-    </div>
-    <blockquote class="big-quote reveal">
-      <p>culture is not content.<br>it is a way of living.</p>
-      <cite>— the selva manifesto</cite>
-    </blockquote>
-  </section>
-
-  <!-- =========  marquee ticker  ========= -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>art &amp; expression</span><span class="marquee-dot">✦</span>
-      <span>sound &amp; music</span><span class="marquee-dot">✦</span>
-      <span>wellness &amp; performance</span><span class="marquee-dot">✦</span>
-      <span>mind &amp; perspective</span><span class="marquee-dot">✦</span>
-      <span>entrepreneurship &amp; creation</span><span class="marquee-dot">✦</span>
-      <span>nature &amp; living well</span><span class="marquee-dot">✦</span>
-      <span>art &amp; expression</span><span class="marquee-dot">✦</span>
-      <span>sound &amp; music</span><span class="marquee-dot">✦</span>
-      <span>wellness &amp; performance</span><span class="marquee-dot">✦</span>
-      <span>mind &amp; perspective</span><span class="marquee-dot">✦</span>
-      <span>entrepreneurship &amp; creation</span><span class="marquee-dot">✦</span>
-      <span>nature &amp; living well</span><span class="marquee-dot">✦</span>
-    </div>
-  </div>
-
-  <!-- =========  six pillars — horizontal cinematic  ========= -->
-  <section class="pillars-horizontal" id="pillars">
-    <div class="pillars-sticky">
-      <div class="pillars-header">
-        <p class="label">№ 02 &nbsp;·&nbsp; the six pillars</p>
-        <h2 class="section-head section-head-light">culture as a daily practice.</h2>
-        <p class="pillars-progress"><span class="pp-current">01</span> / 06</p>
+  <!-- ========== quick intro / values strip ========== -->
+  <section class="block block-values">
+    <div class="values-grid">
+      <div class="value">
+        <p class="value-num">01</p>
+        <h3>by invitation</h3>
+        <p>the quality gate is at the door. every application is read by a human.</p>
       </div>
-      <div class="pillars-track">
-        <article class="pillar-panel">
-          <div class="pp-img"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1600&q=80" alt=""></div>
-          <div class="pp-content">
-            <p class="pp-num">01 / 06</p>
-            <h3 class="pp-title">art &amp; expression</h3>
-            <p class="pp-dek">studio visits, photo essays, design, film — the craft of making things by hand and on purpose.</p>
-          </div>
-        </article>
-        <article class="pillar-panel">
-          <div class="pp-img"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=80" alt=""></div>
-          <div class="pp-content">
-            <p class="pp-num">02 / 06</p>
-            <h3 class="pp-title">sound &amp; music</h3>
-            <p class="pp-dek">listening guides, producer interviews, playlists that mean something beyond the algorithm.</p>
-          </div>
-        </article>
-        <article class="pillar-panel">
-          <div class="pp-img"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1600&q=80" alt=""></div>
-          <div class="pp-content">
-            <p class="pp-num">03 / 06</p>
-            <h3 class="pp-title">wellness &amp; performance</h3>
-            <p class="pp-dek">practice guides and protocols from people who actually do the work — not the marketing.</p>
-          </div>
-        </article>
-        <article class="pillar-panel">
-          <div class="pp-img"><img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1600&q=80" alt=""></div>
-          <div class="pp-content">
-            <p class="pp-num">04 / 06</p>
-            <h3 class="pp-title">mind &amp; perspective</h3>
-            <p class="pp-dek">essays, book reviews, ideas worth sitting with — thinking as a discipline.</p>
-          </div>
-        </article>
-        <article class="pillar-panel">
-          <div class="pp-img"><img src="https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=1600&q=80" alt=""></div>
-          <div class="pp-content">
-            <p class="pp-num">05 / 06</p>
-            <h3 class="pp-title">entrepreneurship &amp; creation</h3>
-            <p class="pp-dek">build journals, founder interviews, honest case studies from people still in the middle of it.</p>
-          </div>
-        </article>
-        <article class="pillar-panel">
-          <div class="pp-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80" alt=""></div>
-          <div class="pp-content">
-            <p class="pp-num">06 / 06</p>
-            <h3 class="pp-title">nature &amp; living well</h3>
-            <p class="pp-dek">travel, food, and the art of living slowly — in places, in rooms, in seasons.</p>
-          </div>
-        </article>
+      <div class="value">
+        <p class="value-num">02</p>
+        <h3>no algorithm</h3>
+        <p>a living magazine, not a feed. editorial, not engagement.</p>
+      </div>
+      <div class="value">
+        <p class="value-num">03</p>
+        <h3>one price</h3>
+        <p>$33 / month. $333 / year. no free tier, no vip. everyone equal.</p>
+      </div>
+      <div class="value">
+        <p class="value-num">04</p>
+        <h3>philanthropy in the open</h3>
+        <p>a transparent percentage of every dollar goes back out. published publicly.</p>
       </div>
     </div>
   </section>
 
-  <!-- =========  from the feed  ========= -->
-  <section class="block block-feed">
+  <!-- ========== the pillars teaser ========== -->
+  <section class="block block-pillars-teaser">
     <div class="block-head">
-      <p class="label reveal">№ 03 &nbsp;·&nbsp; from the feed</p>
-      <h2 class="section-head reveal">a living magazine, not a scroll.</h2>
-      <p class="section-lede reveal">every issue lives inside the app. long-form, photo, audio, film — across the six pillars, without algorithms or ads.</p>
+      <p class="eyebrow">six pillars</p>
+      <h2 class="h2">culture as a daily practice.</h2>
+      <p class="lede">every member, every piece of content, every room inside selva belongs to one of six pillars. these are not categories — they are ways of paying attention.</p>
     </div>
-
-    <div class="feed-grid">
-      <article class="feed-card reveal">
-        <div class="feed-img"><img src="https://images.unsplash.com/photo-1552960562-daf630e9278b?auto=format&fit=crop&w=1000&q=80" alt=""></div>
-        <p class="feed-pillar">art &amp; expression</p>
-        <h3 class="feed-title">on the discipline of looking slowly.</h3>
-        <p class="feed-dek">a photo essay on a painter who hasn't shown work in twelve years — and why that was the point.</p>
-        <p class="feed-meta">by amalia reyes &nbsp;·&nbsp; 12 min read</p>
-      </article>
-      <article class="feed-card reveal">
-        <div class="feed-img"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80" alt=""></div>
-        <p class="feed-pillar">sound &amp; music</p>
-        <h3 class="feed-title">the playlist for a long walk home.</h3>
-        <p class="feed-dek">a listening guide built by six members. strings, field recordings, one track you'll replay for a week.</p>
-        <p class="feed-meta">curated by the editors &nbsp;·&nbsp; 48 min listen</p>
-      </article>
-      <article class="feed-card reveal">
-        <div class="feed-img"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1000&q=80" alt=""></div>
-        <p class="feed-pillar">mind &amp; perspective</p>
-        <h3 class="feed-title">attention is the last luxury.</h3>
-        <p class="feed-dek">an essay on reclaiming focus — not through apps or hacks, but through the way you structure your days.</p>
-        <p class="feed-meta">by daniel okon &nbsp;·&nbsp; 9 min read</p>
-      </article>
-    </div>
+    <ul class="pillar-list">
+      <li><a href="/pillars.html#art"><span class="pl-num">01</span><span class="pl-name">art &amp; expression</span><span class="pl-arrow">&rarr;</span></a></li>
+      <li><a href="/pillars.html#sound"><span class="pl-num">02</span><span class="pl-name">sound &amp; music</span><span class="pl-arrow">&rarr;</span></a></li>
+      <li><a href="/pillars.html#wellness"><span class="pl-num">03</span><span class="pl-name">wellness &amp; performance</span><span class="pl-arrow">&rarr;</span></a></li>
+      <li><a href="/pillars.html#mind"><span class="pl-num">04</span><span class="pl-name">mind &amp; perspective</span><span class="pl-arrow">&rarr;</span></a></li>
+      <li><a href="/pillars.html#entrepreneurship"><span class="pl-num">05</span><span class="pl-name">entrepreneurship &amp; creation</span><span class="pl-arrow">&rarr;</span></a></li>
+      <li><a href="/pillars.html#nature"><span class="pl-num">06</span><span class="pl-name">nature &amp; living well</span><span class="pl-arrow">&rarr;</span></a></li>
+    </ul>
   </section>
 
-  <!-- =========  purpose  ========= -->
-  <section class="block-purpose">
-    <div class="purpose-inner">
-      <p class="label reveal">№ 04 &nbsp;·&nbsp; purpose</p>
-      <h2 class="section-head section-head-large reveal">a percentage of every dollar goes back out. public. non-negotiable.</h2>
-      <p class="section-lede reveal">profits from membership and marketplace fund philanthropy at a transparent percentage. published openly. changed only upward.</p>
-      <div class="purpose-stat reveal">
-        <div><p class="stat-num">%</p><p class="stat-label">of every dollar allocated to causes</p></div>
-        <div><p class="stat-num">0</p><p class="stat-label">ads, ever</p></div>
-        <div><p class="stat-num">1</p><p class="stat-label">price for everyone</p></div>
+  <!-- ========== latest from the journal ========== -->
+  <section class="block block-latest">
+    <div class="block-head block-head-row">
+      <div>
+        <p class="eyebrow">from the journal</p>
+        <h2 class="h2">worth your attention.</h2>
       </div>
+      <a href="/journal.html" class="btn-text">read the journal &rarr;</a>
+    </div>
+    <div class="latest-grid">
+      <a class="latest-card" href="/journal.html">
+        <div class="lc-img"><img src="https://images.unsplash.com/photo-1552960562-daf630e9278b?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <p class="lc-pillar">art &amp; expression</p>
+        <h3 class="lc-title">on the discipline of looking slowly.</h3>
+        <p class="lc-meta">amalia reyes &nbsp;·&nbsp; 12 min</p>
+      </a>
+      <a class="latest-card" href="/journal.html">
+        <div class="lc-img"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <p class="lc-pillar">sound &amp; music</p>
+        <h3 class="lc-title">the playlist for a long walk home.</h3>
+        <p class="lc-meta">the editors &nbsp;·&nbsp; 48 min listen</p>
+      </a>
+      <a class="latest-card" href="/journal.html">
+        <div class="lc-img"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <p class="lc-pillar">mind &amp; perspective</p>
+        <h3 class="lc-title">attention is the last luxury.</h3>
+        <p class="lc-meta">daniel okon &nbsp;·&nbsp; 9 min</p>
+      </a>
     </div>
   </section>
 
-  <!-- =========  member card  ========= -->
-  <section class="block-card">
-    <div class="card-bg">
+  <!-- ========== membership teaser ========== -->
+  <section class="block-promo">
+    <div class="promo-bg">
       <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=80" alt="">
-      <div class="card-overlay"></div>
+      <div class="promo-overlay"></div>
     </div>
-    <div class="card-inner">
-      <div class="card-copy">
-        <p class="label reveal">№ 05 &nbsp;·&nbsp; the card</p>
-        <h2 class="section-head section-head-light reveal">a small object, hand-numbered.</h2>
-        <p class="section-lede section-lede-light reveal">every member receives a physical card. cream, corner brackets, cormorant italic name, numbered in sequence. not a status symbol — a quiet reminder that you belong.</p>
-      </div>
-      <div class="card-stage reveal">
-        <div class="member-card">
-          <span class="mc-corner mc-tl"></span>
-          <span class="mc-corner mc-tr"></span>
-          <span class="mc-corner mc-bl"></span>
-          <span class="mc-corner mc-br"></span>
-          <p class="mc-over">member · since 2026</p>
-          <p class="mc-name">jeronimo b.</p>
-          <p class="mc-num">№ 001 / 333</p>
-        </div>
-      </div>
+    <div class="promo-inner">
+      <p class="eyebrow eyebrow-light">membership</p>
+      <h2 class="h2 h2-light">one tier. everyone equal.</h2>
+      <p class="lede lede-light">$33 a month or $333 a year, from the first day. no free tier, no trial. a percentage of every dollar goes to philanthropy — public, non-negotiable.</p>
+      <a href="/membership.html" class="btn btn-gold">read about membership &rarr;</a>
     </div>
   </section>
 
-  <!-- =========  inside  ========= -->
-  <section class="block block-inside">
-    <div class="block-head">
-      <p class="label reveal">№ 06 &nbsp;·&nbsp; inside</p>
-      <h2 class="section-head reveal">what you'll find when the door opens.</h2>
-    </div>
-    <dl class="inside-list">
-      <div class="inside-row reveal">
-        <dt>home</dt>
-        <dd>the room when you walk in. who's here, what's happening, who's worth meeting this week.</dd>
+  <!-- ========== footer ========== -->
+  <footer class="site-footer">
+    <div class="sf-inner">
+      <div class="sf-col">
+        <p class="sf-mark">SELVA</p>
+        <p class="sf-tag">a private cultural community</p>
       </div>
-      <div class="inside-row reveal">
-        <dt>feed</dt>
-        <dd>a living magazine across the six pillars. long-form, photo, audio, film. no algorithm, no ads.</dd>
-      </div>
-      <div class="inside-row reveal">
-        <dt>communities</dt>
-        <dd>small rooms inside the room. proposed by members, approved with care, kept intentionally small.</dd>
-      </div>
-      <div class="inside-row reveal">
-        <dt>market</dt>
-        <dd>a short shelf of things worth owning, from businesses vetted for alignment — not for spend.</dd>
-      </div>
-      <div class="inside-row reveal">
-        <dt>profile</dt>
-        <dd>your identity, in full. pillar affinities. things you've made. no followers, no metrics, no vanity.</dd>
-      </div>
-    </dl>
-  </section>
-
-  <!-- =========  voices  ========= -->
-  <section class="block block-voices">
-    <div class="block-head">
-      <p class="label reveal">№ 07 &nbsp;·&nbsp; voices inside</p>
-      <h2 class="section-head reveal">founding creators, across the six pillars.</h2>
-      <p class="section-lede reveal">a short list of practitioners — not influencers — who are helping shape the room from day one. final list reveals at launch.</p>
-    </div>
-
-    <div class="voices-grid">
-      <div class="voice reveal">
-        <div class="voice-img"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=80" alt=""></div>
-        <p class="voice-name">a. reyes</p>
-        <p class="voice-role">painter · mexico city</p>
-        <p class="voice-pillar">art &amp; expression</p>
-      </div>
-      <div class="voice reveal">
-        <div class="voice-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt=""></div>
-        <p class="voice-name">m. okafor</p>
-        <p class="voice-role">producer · lisbon</p>
-        <p class="voice-pillar">sound &amp; music</p>
-      </div>
-      <div class="voice reveal">
-        <div class="voice-img"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt=""></div>
-        <p class="voice-name">e. navarro</p>
-        <p class="voice-role">somatic therapist · nyc</p>
-        <p class="voice-pillar">wellness &amp; performance</p>
-      </div>
-      <div class="voice reveal">
-        <div class="voice-img"><img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=600&q=80" alt=""></div>
-        <p class="voice-name">d. okon</p>
-        <p class="voice-role">essayist · london</p>
-        <p class="voice-pillar">mind &amp; perspective</p>
-      </div>
-      <div class="voice reveal">
-        <div class="voice-img"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt=""></div>
-        <p class="voice-name">s. mori</p>
-        <p class="voice-role">studio founder · cdmx</p>
-        <p class="voice-pillar">entrepreneurship</p>
-      </div>
-      <div class="voice reveal">
-        <div class="voice-img"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt=""></div>
-        <p class="voice-name">r. villa</p>
-        <p class="voice-role">chef · oaxaca</p>
-        <p class="voice-pillar">nature &amp; living well</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========  faq  ========= -->
-  <section class="block block-faq">
-    <div class="block-head">
-      <p class="label reveal">№ 08 &nbsp;·&nbsp; the door</p>
-      <h2 class="section-head reveal">about the invitation.</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq reveal">
-        <summary>how does an invitation work?</summary>
-        <p>leave your email. we review every address by hand. if it's a match, you'll receive an invitation with a link to apply. we reply to everyone, even when it isn't.</p>
-      </details>
-      <details class="faq reveal">
-        <summary>is selva free to try?</summary>
-        <p>no free tier. no trial. $33 a month or $333 a year, from day one. the price signals commitment and filters for the right people.</p>
-      </details>
-      <details class="faq reveal">
-        <summary>is there a membership cap?</summary>
-        <p>no numerical cap. the quality gate at the door is real — but growth is deliberate, never throttled for scarcity's sake.</p>
-      </details>
-      <details class="faq reveal">
-        <summary>what about businesses?</summary>
-        <p>businesses can apply for a separate profile type. every business is vetted on alignment with the community's values — not on how much they can spend.</p>
-      </details>
-      <details class="faq reveal">
-        <summary>how does the philanthropy allocation work?</summary>
-        <p>a transparent percentage of all profits — membership and marketplace — is published publicly and paid out. the percentage can only move upward.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- =========  final cta with hero image  ========= -->
-  <section class="block-cta">
-    <div class="cta-bg">
-      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2000&q=80" alt="">
-      <div class="cta-overlay"></div>
-    </div>
-    <div class="cta-inner">
-      <p class="label label-light reveal">№ 09 &nbsp;·&nbsp; enter</p>
-      <h2 class="section-head section-head-large section-head-light reveal">leave your email<br>to be considered.</h2>
-      <form class="capture capture-big capture-light reveal" onsubmit="return handleSubmit(event)">
-        <input type="email" placeholder="your email" required aria-label="email">
-        <button type="submit">request an invitation</button>
-      </form>
-      <p class="cta-fine cta-fine-light reveal">every member pays the same. $33 / month or $333 / year. one tier, everyone equal.</p>
-    </div>
-  </section>
-
-  <!-- =========  footer  ========= -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-col">
-        <p class="footer-mark">SELVA</p>
-        <p class="footer-tag">a private cultural community</p>
-      </div>
-      <div class="footer-col">
-        <p class="footer-label">the six pillars</p>
+      <div class="sf-col">
+        <p class="sf-label">explore</p>
         <ul>
-          <li>art &amp; expression</li>
-          <li>sound &amp; music</li>
-          <li>wellness &amp; performance</li>
-          <li>mind &amp; perspective</li>
-          <li>entrepreneurship</li>
-          <li>nature &amp; living well</li>
+          <li><a href="/inside.html">inside selva</a></li>
+          <li><a href="/pillars.html">the six pillars</a></li>
+          <li><a href="/journal.html">the journal</a></li>
+          <li><a href="/membership.html">how to join</a></li>
+          <li><a href="/purpose.html">our purpose</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <p class="footer-label">elsewhere</p>
+      <div class="sf-col">
+        <p class="sf-label">elsewhere</p>
         <ul>
-          <li><a href="#">@joinselva</a></li>
-          <li><a href="#">manifesto</a></li>
-          <li><a href="#">press</a></li>
-          <li><a href="#">contact</a></li>
+          <li><a href="#">instagram — @joinselva</a></li>
+          <li><a href="#">press kit</a></li>
+          <li><a href="/purpose.html#contact">business inquiries</a></li>
         </ul>
       </div>
+      <div class="sf-col">
+        <p class="sf-label">newsletter</p>
+        <p class="sf-small">occasional letters from the editors.</p>
+        <form class="sf-form" onsubmit="return handleSubmit(event)">
+          <input type="email" placeholder="your email" required aria-label="email">
+          <button type="submit">&rarr;</button>
+        </form>
+      </div>
     </div>
-    <div class="footer-base">
+    <div class="sf-base">
       <span>© selva · 2026</span>
       <span>made with care, not urgency.</span>
     </div>
   </footer>
 
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
