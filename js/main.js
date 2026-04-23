@@ -17,6 +17,43 @@ const updateBar = () => {
 window.addEventListener('scroll', updateBar, { passive: true });
 updateBar();
 
+// gsap + scrolltrigger integration
+if (window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+  if (lenis) {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((t) => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // horizontal pinned pillars
+  const pHor = document.querySelector('.pillars-horizontal');
+  const pTrack = document.querySelector('.pillars-track');
+  const panels = gsap.utils.toArray('.pillar-panel');
+  const ppCurrent = document.querySelector('.pp-current');
+  if (pHor && pTrack && panels.length && !reduced) {
+    const totalShift = () => pTrack.scrollWidth - window.innerWidth;
+    gsap.to(pTrack, {
+      x: () => -totalShift(),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: pHor,
+        pin: '.pillars-sticky',
+        start: 'top top',
+        end: () => '+=' + totalShift(),
+        scrub: 0.8,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const i = Math.min(panels.length - 1, Math.floor(self.progress * panels.length));
+          panels.forEach((p, idx) => p.classList.toggle('is-active', idx === i));
+          if (ppCurrent) ppCurrent.textContent = String(i + 1).padStart(2, '0');
+        }
+      }
+    });
+    panels[0].classList.add('is-active');
+  }
+}
+
 // reveal on scroll
 const io = new IntersectionObserver(
   (entries) => {
