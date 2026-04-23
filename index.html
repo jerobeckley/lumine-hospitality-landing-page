@@ -113,6 +113,52 @@
 
   <hr class="or-rule">
 
+  <!-- cinematic scroll story — 4 chapters on a pinned canvas -->
+  <section class="story" aria-label="the selva story">
+    <div class="story-sticky">
+      <!-- stacked background images, crossfade per chapter -->
+      <div class="story-bg" data-chapter="0"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=85" alt=""></div>
+      <div class="story-bg" data-chapter="1"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=2400&q=85" alt=""></div>
+      <div class="story-bg" data-chapter="2"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2400&q=85" alt=""></div>
+      <div class="story-bg" data-chapter="3"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2400&q=85" alt=""></div>
+      <div class="story-grain"></div>
+      <div class="story-vignette"></div>
+
+      <div class="story-ui">
+        <div class="story-rail">
+          <span class="sr-label">chapter</span>
+          <span class="sr-count"><span class="sr-cur">01</span><em>/</em>04</span>
+          <div class="sr-track"><div class="sr-fill"></div></div>
+        </div>
+      </div>
+
+      <!-- stacked text panels, one active at a time -->
+      <div class="story-panels">
+        <article class="story-panel is-active" data-chapter="0">
+          <p class="sp-num">01</p>
+          <h2 class="sp-head">the feed is exhausting.</h2>
+          <p class="sp-lede">every platform we grew up on became a supermarket. the infinite scroll was supposed to connect us; instead it became the thing we had to recover from.</p>
+        </article>
+        <article class="story-panel" data-chapter="1">
+          <p class="sp-num">02</p>
+          <h2 class="sp-head">so we built a room.</h2>
+          <p class="sp-lede">selva is a private cultural community — small on purpose, human-vetted at the door, quiet by design. the opposite of the algorithm.</p>
+        </article>
+        <article class="story-panel" data-chapter="2">
+          <p class="sp-num">03</p>
+          <h2 class="sp-head">six pillars. one magazine.</h2>
+          <p class="sp-lede">art, sound, wellness, mind, entrepreneurship, nature. every piece commissioned, edited, published by a human. no ads, no algorithm, no engagement metrics.</p>
+        </article>
+        <article class="story-panel" data-chapter="3">
+          <p class="sp-num">04</p>
+          <h2 class="sp-head">by invitation, at $33 a month.</h2>
+          <p class="sp-lede">one tier, everyone equal. a percentage of every dollar goes back out — publicly, non-negotiable. the door is open a few hours a week.</p>
+          <a href="/membership.html" class="btn btn-gold" data-magnetic>request an invitation &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- pull quote moment -->
   <section class="block-pullquote">
     <div class="pq-inner">

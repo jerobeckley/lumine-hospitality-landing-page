@@ -653,6 +653,173 @@ a:hover .img-hover, .pillar:hover .img-hover, .issue-card:hover .img-hover, .fh-
   color: color-mix(in srgb, var(--cream) 50%, transparent);
 }
 
+/* ========== cinematic scroll story ========== */
+.story {
+  position: relative;
+  height: 400vh; /* 4 chapters × 100vh */
+  background: var(--near-black);
+}
+.story-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--cream);
+}
+.story-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 900ms var(--ease), transform 3000ms var(--ease);
+  will-change: opacity, transform;
+}
+.story-bg.is-active { opacity: 1; transform: scale(1.02); }
+.story-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55) saturate(0.82) contrast(1.08);
+  transform: scale(1.08);
+}
+.story-grain {
+  position: absolute; inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  background-image:
+    radial-gradient(#fff 0.5px, transparent 0.5px),
+    radial-gradient(#fff 0.5px, transparent 0.5px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1.5px 2.5px;
+  mix-blend-mode: overlay;
+}
+.story-vignette {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 50%, transparent 30%, rgba(14,14,14,0.55) 100%),
+    linear-gradient(to bottom, rgba(14,14,14,0.25) 0%, rgba(14,14,14,0) 35%, rgba(14,14,14,0.6) 100%);
+  pointer-events: none;
+}
+
+.story-ui {
+  position: absolute;
+  top: 50%;
+  right: var(--gutter);
+  transform: translateY(-50%);
+  z-index: 3;
+}
+.story-rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-end;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--cream) 72%, transparent);
+}
+.sr-count {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 28px;
+  letter-spacing: 0;
+  color: var(--cream);
+  text-transform: none;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.sr-cur { color: var(--gold); min-width: 2ch; text-align: right; }
+.sr-count em { font-style: normal; color: color-mix(in srgb, var(--cream) 45%, transparent); font-size: 14px; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+.sr-track {
+  width: 2px;
+  height: 180px;
+  background: color-mix(in srgb, var(--cream) 20%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+.sr-fill {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 25%;
+  background: var(--gold);
+  transition: height 600ms var(--ease);
+  will-change: height;
+}
+
+.story-panels {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--gutter);
+  z-index: 2;
+}
+.story-panel {
+  position: absolute;
+  top: 50%;
+  left: var(--gutter);
+  right: 25%;
+  transform: translateY(-50%) translateY(30px);
+  max-width: 880px;
+  opacity: 0;
+  transition: opacity 900ms var(--ease), transform 1200ms var(--ease);
+  pointer-events: none;
+}
+.story-panel.is-active {
+  opacity: 1;
+  transform: translateY(-50%) translateY(0);
+  pointer-events: auto;
+}
+.sp-num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(72px, 11vw, 180px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--gold);
+  letter-spacing: -0.04em;
+  margin-bottom: var(--space-3);
+}
+.sp-head {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 6.5vw, 96px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: var(--space-4);
+  max-width: 18ch;
+}
+.sp-lede {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(19px, 1.8vw, 26px);
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--cream) 84%, transparent);
+  max-width: 58ch;
+  margin-bottom: var(--space-5);
+}
+.story-panel .btn-gold { pointer-events: auto; }
+
+@media (max-width: 900px) {
+  .story { height: auto; }
+  .story-sticky { position: relative; top: auto; height: auto; min-height: auto; padding: 0; }
+  .story-panels { position: relative; flex-direction: column; padding: 0; }
+  .story-panel {
+    position: relative;
+    top: auto;
+    left: 0;
+    right: 0;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    padding: var(--space-8) var(--gutter);
+    border-bottom: 1px solid color-mix(in srgb, var(--cream) 14%, transparent);
+  }
+  .story-bg { position: absolute; opacity: 1; }
+  .story-bg:not(:first-child) { display: none; }
+  .story-ui { display: none; }
+}
+
 /* ========== pillar marquee ========== */
 .pillar-marquee {
   overflow: hidden;

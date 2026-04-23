@@ -247,6 +247,46 @@ updateBar();
 })();
 
 // ============================================================
+// CINEMATIC STORY — pinned chapters, crossfading bg
+// ============================================================
+(function cinematic() {
+  const section = document.querySelector('.story');
+  if (!section) return;
+  const panels = section.querySelectorAll('.story-panel');
+  const bgs = section.querySelectorAll('.story-bg');
+  const curEl = section.querySelector('.sr-cur');
+  const fill = section.querySelector('.sr-fill');
+  const total = panels.length;
+  if (!total) return;
+  if (reduced) {
+    panels.forEach((p) => p.classList.add('is-active'));
+    bgs[0]?.classList.add('is-active');
+    return;
+  }
+
+  let running = false;
+  function update() {
+    running = false;
+    const rect = section.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const totalScroll = section.offsetHeight - vh;
+    const scrolled = Math.min(Math.max(-rect.top, 0), totalScroll);
+    const progress = totalScroll > 0 ? scrolled / totalScroll : 0;
+    const stepped = Math.min(total - 1, Math.floor(progress * total * 0.999));
+
+    panels.forEach((p, i) => p.classList.toggle('is-active', i === stepped));
+    bgs.forEach((b, i) => b.classList.toggle('is-active', i === stepped));
+    if (curEl) curEl.textContent = String(stepped + 1).padStart(2, '0');
+    if (fill) fill.style.height = ((stepped + 1) / total * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', () => {
+    if (!running) { running = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+// ============================================================
 // NAV SHRINK ON SCROLL + BANNER HIDE
 // ============================================================
 (function navScroll() {
