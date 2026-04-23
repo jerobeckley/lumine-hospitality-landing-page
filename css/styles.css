@@ -596,6 +596,64 @@ a { color: inherit; text-decoration: none; }
 }
 .surface-list li:last-child { border-bottom: 0; }
 
+/* ========== pillar chapters (pillars.html) ========== */
+.pillar-chapter {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-7);
+  align-items: center;
+  scroll-margin-top: calc(var(--nav-h) + 80px);
+  border-bottom: 1px solid color-mix(in srgb, var(--forest) 14%, transparent);
+}
+.pc-alt .pc-media { order: 2; }
+.pc-alt .pc-copy { order: 1; }
+.pc-media {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--cream-warm);
+}
+.pc-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1400ms var(--ease);
+}
+.pillar-chapter:hover .pc-media img { transform: scale(1.03); }
+.pc-cols {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid color-mix(in srgb, var(--forest) 18%, transparent);
+}
+.pc-label {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-3);
+}
+.pc-list { list-style: none; }
+.pc-list li {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--forest-mid);
+  padding: 5px 0;
+}
+.pc-list-quote li {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--forest);
+  line-height: 1.5;
+  border-bottom: 1px dotted color-mix(in srgb, var(--forest) 15%, transparent);
+  padding: 10px 0;
+}
+.pc-list-quote li:last-child { border-bottom: 0; }
+
 /* ========== closing cta (sub-page) ========== */
 .closing-cta {
   background: var(--forest);
@@ -619,6 +677,11 @@ a { color: inherit; text-decoration: none; }
   .surface-alt .surface-media { order: 0; }
   .surface-alt .surface-copy { order: 1; }
   .surface-media { aspect-ratio: 16 / 10; }
+  .pillar-chapter { grid-template-columns: 1fr; gap: var(--space-5); }
+  .pc-alt .pc-media { order: 0; }
+  .pc-alt .pc-copy { order: 1; }
+  .pc-media { aspect-ratio: 16 / 10; }
+  .pc-cols { grid-template-columns: 1fr; gap: var(--space-4); }
 }
 @media (max-width: 640px) {
   .values-grid { grid-template-columns: 1fr; gap: var(--space-4); }
