@@ -216,8 +216,15 @@ body.cursor-on * { cursor: none !important; }
 .img-reveal.is-inview > .img-inner { clip-path: inset(0 0 0 0); transform: scale(1); }
 
 /* hover filter treatment on editorial images */
-.img-hover { transition: filter 600ms var(--ease); filter: saturate(0.75) contrast(1.02); }
-a:hover .img-hover, .pillar:hover .img-hover, .issue-card:hover .img-hover, .fh-card:hover .img-hover, .latest-card:hover .img-hover, .j-card:hover .img-hover { filter: saturate(1.05) contrast(1); }
+.img-hover { transition: filter 600ms var(--ease); filter: saturate(0.82) contrast(1.05) sepia(0.08); }
+a:hover .img-hover, .pillar:hover .img-hover, .issue-card:hover .img-hover, .fh-card:hover .img-hover, .latest-card:hover .img-hover, .j-card:hover .img-hover { filter: saturate(1.08) contrast(1.02) sepia(0); }
+
+/* warm/editorial treatment on ALL editorial imagery — unifies stock photos into a brand look */
+.fh-img img, .lc-img img, .j-img img, .jf-img img, .pc-media img, .surface-media img, .pillar-img img, .hh-bg img, .edhero-bg img, .promo-bg img, .quote-bg img, .card-bg img, .cta-bg img, .story-bg img, .intro-figure img, .story-figure img {
+  filter: saturate(0.85) contrast(1.06) sepia(0.06) brightness(0.96);
+}
+/* darker backgrounds keep their brightness treatment */
+.edhero-bg img, .promo-bg img, .quote-bg img, .card-bg img, .cta-bg img, .story-bg img { filter: brightness(0.52) saturate(0.88) contrast(1.08) sepia(0.08); }
 
 /* parallax image container — JS writes --py */
 .parallax-img img { transform: translate3d(0, var(--py, 0px), 0) scale(1.08); transition: none; }
