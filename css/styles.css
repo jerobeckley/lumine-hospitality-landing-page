@@ -465,11 +465,12 @@ a:hover .img-hover, .pillar:hover .img-hover, .issue-card:hover .img-hover, .fh-
 }
 .nav-links a {
   font-size: 13px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
   color: var(--forest-mid);
   padding: 6px 0;
   position: relative;
   transition: color 200ms var(--ease);
+  text-transform: none;
 }
 .nav-links a:hover { color: var(--gold); }
 .nav-links a::after {
@@ -1218,7 +1219,11 @@ body.home.is-scrolled .issue-banner { transform: translateY(-100%); }
   color: var(--cream);
   margin-bottom: var(--space-4);
   text-shadow: 0 4px 16px rgba(0,0,0,0.32);
+  text-transform: none;
 }
+.cover-sub { text-transform: none; }
+.cover-kicker, .cl-label { text-transform: uppercase; }
+.cover-dek, .cover-byline, .cl-col p { text-transform: none; }
 .cover-dek {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
