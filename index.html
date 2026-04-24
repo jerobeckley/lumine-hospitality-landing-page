@@ -3,506 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SELVA — Issue 001, Spring 2026</title>
-  <meta name="description" content="SELVA is a private community for creatives and culturally minded people. Issue 001 · Spring 2026.">
+  <title>SELVA — Issue 001</title>
+  <meta name="description" content="A members-only magazine. By invitation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="home">
+<body class="home-v2">
 
-  <!-- loader -->
-  <div class="loader" aria-hidden="true">
-    <div class="loader-inner">
-      <span class="loader-count">00</span>
-      <span class="loader-mark"><img src="assets/selva-cream.png" alt="SELVA" class="wm wm-loader"></span>
-      <span class="loader-line"></span>
-    </div>
-  </div>
-
-  <div class="scroll-progress" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"></span></div>
-
-  <!-- issue banner -->
-  <div class="issue-banner">
-    <span>Issue 001</span><span class="ib-dot">◆</span>
-    <span>Spring 2026</span><span class="ib-dot">◆</span>
-    <span class="ib-hide">An escape from the feed</span><span class="ib-dot ib-hide">◆</span>
-    <span>By invitation only</span>
-  </div>
-
-  <header class="site-nav site-nav-home">
-    <a href="index.html" class="nav-brand" aria-label="SELVA"><img src="assets/selva-forest.png" alt="SELVA" class="wm wm-nav"></a>
-    <nav class="nav-links" aria-label="primary">
-      <a href="inside.html">Inside</a>
-      <a href="pillars.html">Pillars</a>
+  <!-- minimal masthead nav -->
+  <header class="mh-nav">
+    <a href="index.html" class="mh-nav-mark" aria-label="SELVA">
+      <img src="assets/selva-forest.png" alt="SELVA">
+    </a>
+    <nav class="mh-nav-links">
       <a href="journal.html">Journal</a>
-      <a href="membership.html">Join</a>
+      <a href="membership.html">Apply</a>
       <a href="purpose.html">About</a>
     </nav>
-    <a href="membership.html" class="nav-cta">Request an invite</a>
-    <button class="nav-toggle" aria-label="menu" aria-expanded="false"><span></span><span></span></button>
   </header>
 
-  <!-- ========  THE COVER — issue 001  ======== -->
-  <section class="cover">
-    <div class="cover-bg cover-bg-color">
-      <!-- IMAGE PLACEHOLDER: drop a file at assets/photos/cover.jpg and uncomment:
-      <img src="assets/photos/cover.jpg" alt="">
-      -->
-      <div class="cover-overlay"></div>
-      <div class="cover-grain" aria-hidden="true"></div>
+  <!-- masthead: wordmark + one line + two ctas -->
+  <section class="mh">
+    <p class="mh-issue">№ 001 · Spring 2026</p>
+    <img src="assets/selva-forest.png" alt="SELVA" class="mh-mark">
+    <p class="mh-line">A members-only magazine for readers<br>sick of the feed. By invitation.</p>
+    <div class="mh-ctas">
+      <a href="#index" class="mh-btn mh-btn-primary">Read Issue 001</a>
+      <a href="membership.html" class="mh-btn mh-btn-link">Apply →</a>
     </div>
-
-    <div class="cover-rails">
-      <div class="cover-rail cover-rail-l">
-        <span>Vol. I</span>
-        <span>№ 001</span>
-        <span>Spring 2026</span>
-      </div>
-      <div class="cover-rail cover-rail-r">
-        <span>By invitation only</span>
-        <span>$33 · 333</span>
-        <span>Est. 2026</span>
-      </div>
-    </div>
-
-    <div class="cover-top">
-      <img src="assets/selva-cream.png" alt="SELVA" class="wm wm-cover">
-      <p class="cover-sub">A members-only magazine and community. By invitation.</p>
-    </div>
-
-    <div class="cover-lines">
-      <div class="cl-col">
-        <p class="cl-label">In this issue</p>
-        <p class="cl-big">Attention is the last luxury.</p>
-        <p class="cl-big">The playlist for a long walk home.</p>
-        <p class="cl-big">A month in Oaxaca, by meals.</p>
-        <p class="cl-small">Plus five more pieces &mdash; see the contents.</p>
-      </div>
-      <div class="cl-col">
-        <p class="cl-label">Pillars</p>
-        <p>Art &nbsp;·&nbsp; Sound</p>
-        <p>Wellness &nbsp;·&nbsp; Mind</p>
-        <p>Entrepreneurship</p>
-        <p>Nature &amp; Living</p>
-      </div>
-    </div>
-
-    <a href="#contents" class="cover-turn">Turn the page <span>↓</span></a>
+    <p class="mh-foot">$33/month · $333/year · One tier for everyone</p>
   </section>
 
-  <!-- ========  TABLE OF CONTENTS  ======== -->
-  <section class="contents" id="contents">
-    <div class="contents-masthead">
-      <p class="eyebrow">Contents · Issue 001 · Spring 2026</p>
-      <div class="contents-title-row">
-        <h2 class="h2 contents-h2">Eight pieces to read this season.</h2>
-        <p class="contents-count">08 &nbsp;·&nbsp; pieces</p>
-      </div>
-    </div>
+  <!-- editorial index -->
+  <section id="index" class="ix">
+    <header class="ix-head">
+      <p class="ix-kicker">№ 001 · Spring 2026</p>
+      <h2 class="ix-title">The Index</h2>
+      <p class="ix-sub">Eight pieces. Six subjects. New contents the first of each month.</p>
+    </header>
 
-    <ol class="toc">
-      <li class="toc-row">
-        <span class="toc-num">01</span>
-        <div class="toc-main">
-          <p class="toc-pillar">Art &amp; Expression · Photo Essay</p>
-          <h3 class="toc-title">A painter who walked away.</h3>
-          <p class="toc-dek">Amalia Reyes on Jonas Klein — twelve years without a show, four visits, twenty-two photographs.</p>
+    <ol class="ix-list">
+      <li class="ix-row">
+        <span class="ix-num">01</span>
+        <div class="ix-body">
+          <p class="ix-cat">Art · Photo Essay</p>
+          <h3 class="ix-head-title">A painter who walked away.</h3>
+          <p class="ix-dek">Amalia Reyes on Jonas Klein. Twelve years since his last show. Four visits. Twenty-two photographs.</p>
         </div>
-        <span class="toc-page">003</span>
+        <span class="ix-meta">12 min<br><span>pp. 003–014</span></span>
       </li>
-      <li class="toc-row">
-        <span class="toc-num">02</span>
-        <div class="toc-main">
-          <p class="toc-pillar">Sound &amp; Music · Mix</p>
-          <h3 class="toc-title">The playlist for a long walk home.</h3>
-          <p class="toc-dek">Forty-eight minutes, built by six members. One track you'll keep replaying.</p>
+      <li class="ix-row">
+        <span class="ix-num">02</span>
+        <div class="ix-body">
+          <p class="ix-cat">Sound · Mix</p>
+          <h3 class="ix-head-title">The playlist for a long walk home.</h3>
+          <p class="ix-dek">Forty-eight minutes, six members, one track you'll keep replaying.</p>
         </div>
-        <span class="toc-page">014</span>
+        <span class="ix-meta">48 min<br><span>p. 015</span></span>
       </li>
-      <li class="toc-row">
-        <span class="toc-num">03</span>
-        <div class="toc-main">
-          <p class="toc-pillar">Mind &amp; Perspective · Essay</p>
-          <h3 class="toc-title">Attention is the last luxury.</h3>
-          <p class="toc-dek">Daniel Okon on rebuilding focus, day by day, without an app.</p>
+      <li class="ix-row">
+        <span class="ix-num">03</span>
+        <div class="ix-body">
+          <p class="ix-cat">Mind · Essay</p>
+          <h3 class="ix-head-title">Attention is the last luxury.</h3>
+          <p class="ix-dek">Daniel Okon on rebuilding focus without an app — day by day.</p>
         </div>
-        <span class="toc-page">022</span>
+        <span class="ix-meta">9 min<br><span>pp. 022–028</span></span>
       </li>
-      <li class="toc-row">
-        <span class="toc-num">04</span>
-        <div class="toc-main">
-          <p class="toc-pillar">Wellness &amp; Performance · Protocol</p>
-          <h3 class="toc-title">The case for boring training.</h3>
-          <p class="toc-dek">Elena Navarro on why the best practice is the one you don't post about.</p>
+      <li class="ix-row">
+        <span class="ix-num">04</span>
+        <div class="ix-body">
+          <p class="ix-cat">Wellness · Protocol</p>
+          <h3 class="ix-head-title">The case for boring training.</h3>
+          <p class="ix-dek">Elena Navarro on why the best practice is the one you don't post about.</p>
         </div>
-        <span class="toc-page">031</span>
+        <span class="ix-meta">11 min<br><span>pp. 031–038</span></span>
       </li>
-      <li class="toc-row">
-        <span class="toc-num">05</span>
-        <div class="toc-main">
-          <p class="toc-pillar">Entrepreneurship · Build Journal</p>
-          <h3 class="toc-title">How we stayed small on purpose.</h3>
-          <p class="toc-dek">A studio's first year, in receipts. And the round they turned down.</p>
+      <li class="ix-row">
+        <span class="ix-num">05</span>
+        <div class="ix-body">
+          <p class="ix-cat">Entrepreneurship · Build Journal</p>
+          <h3 class="ix-head-title">How we stayed small on purpose.</h3>
+          <p class="ix-dek">A studio's first year, in receipts. And the round they turned down.</p>
         </div>
-        <span class="toc-page">042</span>
+        <span class="ix-meta">14 min<br><span>pp. 042–052</span></span>
       </li>
-      <li class="toc-row">
-        <span class="toc-num">06</span>
-        <div class="toc-main">
-          <p class="toc-pillar">Nature &amp; Living Well · Travel</p>
-          <h3 class="toc-title">A month in Oaxaca, by meals.</h3>
-          <p class="toc-dek">Ruben Villa eats through a city, slowly. Thirty dinners. No camera.</p>
+      <li class="ix-row">
+        <span class="ix-num">06</span>
+        <div class="ix-body">
+          <p class="ix-cat">Nature · Travel</p>
+          <h3 class="ix-head-title">A month in Oaxaca, by meals.</h3>
+          <p class="ix-dek">Thirty dinners. Three markets. One cabin. Eating through a city without a camera.</p>
         </div>
-        <span class="toc-page">054</span>
+        <span class="ix-meta">16 min<br><span>pp. 054–066</span></span>
       </li>
-      <li class="toc-row">
-        <span class="toc-num">07</span>
-        <div class="toc-main">
-          <p class="toc-pillar">Mind &amp; Perspective · Short</p>
-          <h3 class="toc-title">Why I stopped finishing books.</h3>
-          <p class="toc-dek">A short defence of the library that lets you leave.</p>
+      <li class="ix-row">
+        <span class="ix-num">07</span>
+        <div class="ix-body">
+          <p class="ix-cat">Mind · Short</p>
+          <h3 class="ix-head-title">Why I stopped finishing books.</h3>
+          <p class="ix-dek">A short defence of the library that lets you leave.</p>
         </div>
-        <span class="toc-page">068</span>
+        <span class="ix-meta">6 min<br><span>p. 068</span></span>
       </li>
-      <li class="toc-row">
-        <span class="toc-num">08</span>
-        <div class="toc-main">
-          <p class="toc-pillar">Art &amp; Expression · Interview</p>
-          <h3 class="toc-title">The studio as a second body.</h3>
-          <p class="toc-dek">Three painters on the rituals that turn a room into a place you can think.</p>
+      <li class="ix-row">
+        <span class="ix-num">08</span>
+        <div class="ix-body">
+          <p class="ix-cat">Art · Interview</p>
+          <h3 class="ix-head-title">The studio as a second body.</h3>
+          <p class="ix-dek">Three painters on the rituals that turn a room into a place you can think.</p>
         </div>
-        <span class="toc-page">074</span>
+        <span class="ix-meta">10 min<br><span>pp. 074–082</span></span>
       </li>
     </ol>
 
-    <div class="contents-foot">
-      <a href="journal.html" class="btn btn-primary" data-magnetic>Read Issue 001 &rarr;</a>
-      <span class="contents-foot-fine">Issue 002 arrives in June.</span>
+    <div class="ix-foot">
+      <a href="journal.html" class="mh-btn mh-btn-primary">Open Issue 001</a>
+      <span>Issue 002 arrives in June.</span>
     </div>
   </section>
 
-  <!-- editor's letter teaser -->
-  <section class="block block-editor">
-    <div class="editor-grid">
-      <div>
-        <p class="eyebrow">A note &nbsp;·&nbsp; Issue 001</p>
-        <h2 class="h2">Why this exists.</h2>
+  <!-- manifesto -->
+  <section class="mn">
+    <div class="mn-grid">
+      <div class="mn-col-l">
+        <p class="ix-kicker">About</p>
+        <h2 class="mn-title">Why this exists.</h2>
       </div>
-      <div class="editor-body">
-        <p class="drop"><span class="dc">W</span>e got tired. Instagram became a supermarket. LinkedIn, a theatre. Every feed we opened asked for more than it gave back. So we started building something smaller — fewer people, better writing, and an actual off-switch.</p>
-        <p>Issue 001 is eight pieces across six subjects: art, sound, wellness, mind, entrepreneurship, nature. Each one commissioned, edited, and published by a person. No ads. No sponsored content. No notifications dragging you back.</p>
-        <p>If anything in here is worth your time, send it to someone. That's how this spreads.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- featured long read -->
-  <section class="block block-featured-home bleed-num" data-num="01">
-    <div class="fh-marker">
-      <span class="fh-num">01</span>
-      <span class="fh-label">The Feature</span>
-    </div>
-    <a class="fh-card" href="journal.html">
-      <span class="sticker sticker-gold sticker-dot st-feature">New this week</span>
-      <!-- IMAGE PLACEHOLDER: drop file at assets/photos/feature-01.jpg -->
-      <div class="fh-img fh-img-placeholder"></div>
-      <div class="fh-copy">
-        <p class="fh-pillar">The Feature &nbsp;·&nbsp; Art &amp; Expression</p>
-        <h2 class="fh-title">A painter who walked away.</h2>
-        <p class="fh-dek">Amalia Reyes on Jonas Klein — twelve years since his last show, four visits over a spring, and an argument against the attention economy told in small paragraphs and twenty-two photographs.</p>
-        <div class="fh-meta">
-          <span>Amalia Reyes</span>
-          <span>·</span>
-          <span>12 min read</span>
-          <span>·</span>
-          <span>April 19, 2026</span>
-        </div>
-      </div>
-    </a>
-  </section>
-
-  <hr class="or-rule">
-
-  <!-- cinematic scroll story — 4 chapters on a pinned canvas -->
-  <section class="story" aria-label="the selva story">
-    <div class="story-sticky">
-      <!-- IMAGE PLACEHOLDERS: drop assets/photos/story-01..04.jpg to restore -->
-      <div class="story-bg story-bg-color story-bg-1" data-chapter="0"></div>
-      <div class="story-bg story-bg-color story-bg-2" data-chapter="1"></div>
-      <div class="story-bg story-bg-color story-bg-3" data-chapter="2"></div>
-      <div class="story-bg story-bg-color story-bg-4" data-chapter="3"></div>
-      <div class="story-grain"></div>
-      <div class="story-vignette"></div>
-
-      <div class="story-ui">
-        <div class="story-rail">
-          <span class="sr-label">chapter</span>
-          <span class="sr-count"><span class="sr-cur">01</span><em>/</em>04</span>
-          <div class="sr-track"><div class="sr-fill"></div></div>
-        </div>
-      </div>
-
-      <!-- stacked text panels, one active at a time -->
-      <div class="story-panels">
-        <article class="story-panel is-active" data-chapter="0">
-          <p class="sp-num">01</p>
-          <h2 class="sp-head">the feed is exhausting.</h2>
-          <p class="sp-lede">every platform we grew up on became a supermarket. the infinite scroll was supposed to connect us; instead it became the thing we had to recover from.</p>
-        </article>
-        <article class="story-panel" data-chapter="1">
-          <p class="sp-num">02</p>
-          <h2 class="sp-head">so we built a room.</h2>
-          <p class="sp-lede">selva is a private cultural community — small on purpose, human-vetted at the door, quiet by design. the opposite of the algorithm.</p>
-        </article>
-        <article class="story-panel" data-chapter="2">
-          <p class="sp-num">03</p>
-          <h2 class="sp-head">six pillars. one magazine.</h2>
-          <p class="sp-lede">art, sound, wellness, mind, entrepreneurship, nature. every piece commissioned, edited, published by a human. no ads, no algorithm, no engagement metrics.</p>
-        </article>
-        <article class="story-panel" data-chapter="3">
-          <p class="sp-num">04</p>
-          <h2 class="sp-head">by invitation, at $33 a month.</h2>
-          <p class="sp-lede">one tier, everyone equal. a percentage of every dollar goes back out — publicly, non-negotiable. the door is open a few hours a week.</p>
-          <a href="membership.html" class="btn btn-gold" data-magnetic>request an invitation &rarr;</a>
-        </article>
+      <div class="mn-col-r">
+        <p>SELVA is a private magazine and community. Eight commissioned pieces a month, across six subjects: art, sound, wellness, mind, entrepreneurship, nature. Everything is read by a person before it is published. Nothing is algorithmically ranked. Nothing is sponsored.</p>
+        <p>$33 a month or $333 a year. Same price for everyone. A percentage of every dollar is allocated to causes we publish openly each quarter.</p>
+        <p>Applications are read by hand. We reply to everyone. <a href="purpose.html">Read the full story →</a></p>
       </div>
     </div>
   </section>
 
-  <hr class="or-rule">
-
-  <!-- pillar marquee -->
-  <div class="pillar-marquee" aria-hidden="true">
-    <div class="pm-track">
-      <span class="pm-item">art &amp; expression</span><span class="pm-dot">✦</span>
-      <span class="pm-item">sound &amp; music</span><span class="pm-dot">✦</span>
-      <span class="pm-item">wellness &amp; performance</span><span class="pm-dot">✦</span>
-      <span class="pm-item">mind &amp; perspective</span><span class="pm-dot">✦</span>
-      <span class="pm-item">entrepreneurship &amp; creation</span><span class="pm-dot">✦</span>
-      <span class="pm-item">nature &amp; living well</span><span class="pm-dot">✦</span>
-      <span class="pm-item">art &amp; expression</span><span class="pm-dot">✦</span>
-      <span class="pm-item">sound &amp; music</span><span class="pm-dot">✦</span>
-      <span class="pm-item">wellness &amp; performance</span><span class="pm-dot">✦</span>
-      <span class="pm-item">mind &amp; perspective</span><span class="pm-dot">✦</span>
-      <span class="pm-item">entrepreneurship &amp; creation</span><span class="pm-dot">✦</span>
-      <span class="pm-item">nature &amp; living well</span><span class="pm-dot">✦</span>
-    </div>
-  </div>
-
-  <!-- in this issue - 2x2 + sidebar -->
-  <section class="block block-issue bleed-num bleed-right" data-num="02">
-    <div class="fh-marker">
-      <span class="fh-num">02</span>
-      <span class="fh-label">In This Issue</span>
-    </div>
-
-    <div class="issue-grid issue-grid-hybrid">
-      <a href="journal.html" class="issue-card ic-photo">
-        <!-- IMAGE PLACEHOLDER: assets/photos/issue-sound.jpg -->
-        <div class="ic-img ic-img-placeholder ic-ph-honey"></div>
-        <div class="ic-body">
-          <p class="ic-pillar">Sound &amp; Music</p>
-          <h3 class="ic-title">The playlist for a long walk home.</h3>
-          <p class="ic-dek">A 48-minute mix built by six members. Strings, field recordings, one track you'll replay for a week.</p>
-          <div class="ic-meta"><span>The editors</span><span>48 min listen</span></div>
-        </div>
-      </a>
-      <a href="journal.html" class="issue-card ic-block ic-clay">
-        <p class="ic-pillar">Mind &amp; Perspective</p>
-        <h3 class="ic-title ic-title-big">Attention is the last luxury.</h3>
-        <p class="ic-dek">Daniel Okon on reclaiming focus — not through apps, but by rebuilding how you spend a day.</p>
-        <div class="ic-meta"><span>Daniel Okon</span><span>9 min read</span></div>
-        <span class="ic-mark">✦</span>
-      </a>
-      <a href="journal.html" class="issue-card ic-block ic-forest">
-        <p class="ic-pillar">Entrepreneurship</p>
-        <h3 class="ic-title ic-title-big">How we stayed small on purpose.</h3>
-        <p class="ic-dek">A studio's first year, in receipts. And why they turned down the round that would've doubled them.</p>
-        <div class="ic-meta"><span>Sara Mori</span><span>14 min read</span></div>
-        <span class="ic-mark">✦</span>
-      </a>
-      <a href="journal.html" class="issue-card ic-photo">
-        <!-- IMAGE PLACEHOLDER: assets/photos/issue-nature.jpg -->
-        <div class="ic-img ic-img-placeholder ic-ph-sage"></div>
-        <div class="ic-body">
-          <p class="ic-pillar">Nature &amp; Living Well</p>
-          <h3 class="ic-title">A month in Oaxaca, by meals.</h3>
-          <p class="ic-dek">Thirty dinners. Three markets. One cabin. Eating through a city, without a phone.</p>
-          <div class="ic-meta"><span>Ruben Villa</span><span>16 min read</span></div>
-        </div>
-      </a>
-    </div>
-
-    <div class="issue-foot">
-      <a href="journal.html" class="btn-text">Read the full issue &rarr;</a>
-      <span class="issue-foot-fine">Eight pieces &nbsp;·&nbsp; Six pillars &nbsp;·&nbsp; One editor</span>
-    </div>
-  </section>
-
-  <hr class="or-rule">
-
-  <!-- pillar index -->
-  <section class="block block-pillar-index bleed-num" data-num="03">
-    <span class="sticker sticker-clay st-pillars">New each month</span>
-    <div class="fh-marker">
-      <span class="fh-num">03</span>
-      <span class="fh-label">The Pillars</span>
-    </div>
-    <h2 class="h2">Six things we write about.</h2>
-    <p class="lede">Every article, every member group, and every product in the shop lives under one of these six. Click in for sample headlines and the people writing them.</p>
-
-    <ol class="pindex">
-      <li>
-        <a href="pillars.html#art">
-          <span class="pi-num">01</span>
-          <span class="pi-name">Art &amp; Expression</span>
-          <span class="pi-dek">Studios, painters, designers, filmmakers.</span>
-          <span class="pi-more">Studio visits &rarr;</span>
-        </a>
-      </li>
-      <li>
-        <a href="pillars.html#sound">
-          <span class="pi-num">02</span>
-          <span class="pi-name">Sound &amp; Music</span>
-          <span class="pi-dek">Listening guides, producers, handmade mixes.</span>
-          <span class="pi-more">This month's mix &rarr;</span>
-        </a>
-      </li>
-      <li>
-        <a href="pillars.html#wellness">
-          <span class="pi-num">03</span>
-          <span class="pi-name">Wellness &amp; Performance</span>
-          <span class="pi-dek">Honest protocols from people who do the work.</span>
-          <span class="pi-more">The case against biohacking &rarr;</span>
-        </a>
-      </li>
-      <li>
-        <a href="pillars.html#mind">
-          <span class="pi-num">04</span>
-          <span class="pi-name">Mind &amp; Perspective</span>
-          <span class="pi-dek">Essays, reviews, reading lists worth chewing on.</span>
-          <span class="pi-more">The reading room &rarr;</span>
-        </a>
-      </li>
-      <li>
-        <a href="pillars.html#entrepreneurship">
-          <span class="pi-num">05</span>
-          <span class="pi-name">Entrepreneurship</span>
-          <span class="pi-dek">Build journals, founder interviews, honest case studies.</span>
-          <span class="pi-more">From the middle &rarr;</span>
-        </a>
-      </li>
-      <li>
-        <a href="pillars.html#nature">
-          <span class="pi-num">06</span>
-          <span class="pi-name">Nature &amp; Living Well</span>
-          <span class="pi-dek">Travel, food, home, the slower parts.</span>
-          <span class="pi-more">A slower season &rarr;</span>
-        </a>
-      </li>
-    </ol>
-  </section>
-
-  <hr class="or-rule">
-
-  <!-- clay promo band — Cabana/Apartamento warmth -->
-  <section class="block-promo">
-    <span class="sticker sticker-forest sticker-star st-promo">Applications open</span>
-    <div class="promo-inner">
-      <p class="eyebrow">Membership · Spring 2026</p>
-      <h2 class="h2">We're taking applications this season.</h2>
-      <p class="lede">$33 a month or $333 a year. Same price for everyone — no discounts, no VIP, no trial. A percentage of every dollar goes to causes we pick openly, every quarter. Applications are read by a person, not a form.</p>
-      <a href="membership.html" class="btn btn-gold" data-magnetic>How it works &rarr;</a>
-    </div>
-  </section>
-
-  <!-- membership ad (vintage magazine style) -->
-  <section class="block-memad">
-    <div class="memad-frame">
-      <span class="sticker sticker-gold st-memad">Apply</span>
-      <svg class="orn-corner tl" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"><path d="M 4 4 L 22 4 Q 34 4 38 10 Q 40 22 30 28"/><path d="M 4 4 L 4 22 Q 4 34 10 38 Q 22 40 28 30"/></g><circle cx="32" cy="32" r="2.4" fill="currentColor"/><path d="M 26 26 Q 30 28 34 26" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/></svg>
-      <svg class="orn-corner tr" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"><path d="M 4 4 L 22 4 Q 34 4 38 10 Q 40 22 30 28"/><path d="M 4 4 L 4 22 Q 4 34 10 38 Q 22 40 28 30"/></g><circle cx="32" cy="32" r="2.4" fill="currentColor"/></svg>
-      <svg class="orn-corner bl" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"><path d="M 4 4 L 22 4 Q 34 4 38 10 Q 40 22 30 28"/><path d="M 4 4 L 4 22 Q 4 34 10 38 Q 22 40 28 30"/></g><circle cx="32" cy="32" r="2.4" fill="currentColor"/></svg>
-      <svg class="orn-corner br" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"><path d="M 4 4 L 22 4 Q 34 4 38 10 Q 40 22 30 28"/><path d="M 4 4 L 4 22 Q 4 34 10 38 Q 22 40 28 30"/></g><circle cx="32" cy="32" r="2.4" fill="currentColor"/></svg>
-      <div class="memad-head">
-        <span class="memad-stamp">A note for the reader</span>
-        <span class="memad-price">$33/month · $333/year</span>
+  <!-- minimal footer -->
+  <footer class="ft">
+    <div class="ft-row">
+      <a href="index.html" class="ft-mark"><img src="assets/selva-cream.png" alt="SELVA"></a>
+      <div class="ft-col">
+        <a href="journal.html">Journal</a>
+        <a href="membership.html">Apply</a>
+        <a href="purpose.html">About</a>
       </div>
-      <div class="memad-body">
-        <h2 class="memad-title">We're taking new members now.</h2>
-        <p class="memad-lede">There's no waitlist and no bot. You send us your email. A real person reads it. If it's a fit, you get an invitation. If not, you get a reply anyway.</p>
-        <div class="memad-ctas">
-          <a href="membership.html" class="btn btn-gold">How it works &rarr;</a>
-          <a href="membership.html#apply" class="btn btn-ghost btn-ghost-light">Leave your email</a>
-        </div>
+      <div class="ft-col">
+        <a href="#">Instagram</a>
+        <a href="#">Press</a>
+        <a href="purpose.html#contact">Contact</a>
       </div>
-      <div class="memad-foot">
-        <span>A percentage of every dollar goes to causes we publish openly, every quarter.</span>
-        <span class="memad-sig">— SELVA, est. 2026</span>
-      </div>
+      <form class="ft-form" onsubmit="return handleSubmit(event)">
+        <input type="email" placeholder="Newsletter" required aria-label="email">
+        <button type="submit">→</button>
+      </form>
     </div>
-  </section>
-
-  <!-- colophon -->
-  <section class="block block-colophon">
-    <div class="colophon-grid">
-      <div>
-        <p class="eyebrow">Colophon</p>
-        <p class="colophon-line">SELVA is written, edited, and published from Mexico City, Lisbon, and New York. Set in Fraunces, Cormorant Garamond, and DM Sans. Issue 001 closed on <em>April 19, 2026</em>.</p>
-      </div>
-      <div class="colophon-masthead">
-        <p class="cm-row"><span class="cm-role">Editor</span><span>The editors</span></p>
-        <p class="cm-row"><span class="cm-role">Managing editor</span><span>Hiring</span></p>
-        <p class="cm-row"><span class="cm-role">Art direction</span><span>In-house</span></p>
-        <p class="cm-row"><span class="cm-role">Engineering</span><span>Hiring</span></p>
-        <p class="cm-row"><span class="cm-role">Philanthropy</span><span>Published quarterly</span></p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="sf-inner">
-      <div class="sf-col">
-        <p class="sf-mark"><img src="assets/selva-cream.png" alt="SELVA" class="wm wm-footer"></p>
-        <p class="sf-tag">An invite-only alternative to the feed.</p>
-      </div>
-      <div class="sf-col">
-        <p class="sf-label">The site</p>
-        <ul>
-          <li><a href="inside.html">Inside</a></li>
-          <li><a href="pillars.html">Pillars</a></li>
-          <li><a href="journal.html">Journal</a></li>
-          <li><a href="membership.html">Join</a></li>
-          <li><a href="purpose.html">About</a></li>
-        </ul>
-      </div>
-      <div class="sf-col">
-        <p class="sf-label">Elsewhere</p>
-        <ul>
-          <li><a href="#">@joinselva on Instagram</a></li>
-          <li><a href="#">Press kit</a></li>
-          <li><a href="purpose.html#contact">Business inquiries</a></li>
-        </ul>
-      </div>
-      <div class="sf-col">
-        <p class="sf-label">Newsletter</p>
-        <p class="sf-small">One letter a month. Nothing else.</p>
-        <form class="sf-form" onsubmit="return handleSubmit(event)">
-          <input type="email" placeholder="Your email" required aria-label="email">
-          <button type="submit">&rarr;</button>
-        </form>
-      </div>
-    </div>
-    <div class="sf-base">
-      <span>© SELVA · 2026</span>
-      <span>Made slowly.</span>
+    <div class="ft-base">
+      <span>© SELVA · MMXXVI</span>
+      <span>Set in Fraunces &amp; DM Sans</span>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
