@@ -140,7 +140,7 @@ updateBar();
     el.dataset.split = 'true';
     const html = el.innerHTML;
     // split on spaces but keep tags like <br>
-    const parts = html.replace(/<br\s*\/?>/gi, '|BR|').split(/\s+/);
+    const parts = html.replace(/<br\s*\/?>/gi, ' |BR| ').split(/\s+/).filter(Boolean);
     const rebuilt = parts.map((p) => {
       if (p === '|BR|') return '<br>';
       if (!p) return '';
